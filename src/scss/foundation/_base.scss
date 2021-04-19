@@ -1,0 +1,81 @@
+//================================================================
+// ベーススタイル
+//================================================================
+html {
+    font-size: 62.5%
+}
+
+body {
+    overflow-X: hidden;
+
+    @include mq() {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        
+    }
+}
+
+* {
+    font-family: 'Alata', sans-serif;
+}
+
+p, h1, h2, h3 {
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: $color_black;
+}
+
+.heading {
+    margin: 30px 0 15px;
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include mq(lg) {
+        padding-bottom: 15px;
+        margin: 20px 0 15px;
+        font-size: 2.5rem;
+    }       
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#top .logo a {
+    color: $color_white;
+    transition: opacity 0.5s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+#top {
+    .menu_trigger {
+        .top, .middle, .bottom {
+            background: $color_white;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+	.pc-only {
+		display: none;
+	}
+
+	.sp-only {
+		display: block;
+	}
+}

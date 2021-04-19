@@ -1,0 +1,66 @@
+.top_main {
+    position: relative;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    background: $color_black;
+    z-index: 0;
+
+    .text {
+        padding: 0 100px;
+        position: absolute;
+        bottom: 140px;
+        z-index: 1;
+
+        @include mq() {
+            padding: 0 30px;
+            z-index: 1;
+        }
+
+        .sub_title {
+            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            color: $color_white;
+
+            @include mq(lg) {
+                margin-bottom: 1.0rem;
+                font-size: 3rem;
+            }
+        }
+
+        .name {
+            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            color: $color_white;
+
+            @include mq(lg) {
+                margin-bottom: 1.8rem;
+                font-size: 2.3rem;
+            }
+        }
+
+        .desc {
+            font-size: 1.8rem;
+            color: $color_white;
+
+            @include mq(lg) {
+                font-size: 1.4rem;
+            }
+
+            @include mq() {
+                font-size: 1.9rem;
+            }
+        }
+    }
+
+    .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: auto;
+        opacity: 0.2;
+        z-index: 0;
+        object-fit: cover;
+    }
+}
