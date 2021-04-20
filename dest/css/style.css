@@ -345,12 +345,21 @@ a:link, a:hover, a:visited, a:active {
 
 .skills .wrapper .skill_box {
   text-align: center;
-  /*
-            &:nth-of-type(3)::after {
-                content: '\f108';
-                font-weight: 900;
-            }
-            */
+}
+
+.skills .wrapper .skill_box:nth-of-type(1) .skill_title::before {
+  content: '\f121';
+  font-weight: 900;
+}
+
+.skills .wrapper .skill_box:nth-of-type(2) .skill_title::before {
+  content: '\f201';
+  font-weight: 900;
+}
+
+.skills .wrapper .skill_box:nth-of-type(3) .skill_title::before {
+  content: '\f108';
+  font-weight: 900;
 }
 
 .skills .wrapper .skill_box .skill_title {
