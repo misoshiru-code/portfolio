@@ -42,6 +42,17 @@ const destMovDir = './dest/mov';
 const destMovFiles = './dest/mov/**/*'
 const destFiles = './dest/**/*';
 
+// destフォルダのファイル削除
+const clean = (done) => {
+    del([destFiles, '!' + destCssDir, '!' + destJsDir, '!' + destImgDir, '!' + destMovDir]);
+    done();
+};
+
+//ベンダープレフィックスを付与する条件
+const TARGET_BROWSERS = [
+    'last 2 versions',//各ブラウザの2世代前までのバージョンを担保
+    'ie >= 11'//IE11を担保
+];
 
 // EJSコンパイル
 const compileEjs = (done) => {
@@ -75,16 +86,25 @@ const compileSass = (done) => {
     done();
 };
 
-//ベンダープレフィックスを付与する条件
-const TARGET_BROWSERS = [
-    'last 2 versions',//各ブラウザの2世代前までのバージョンを担保
-    'ie >= 11'//IE11を担保
-];
-
 // jsコンパイル
 const compileJs = (done) => {
     gulp.src(srcJsFiles)
         .pipe(gulp.dest(destJsDir));
+    done();
+};
+
+// 画像圧縮
+const minifyImage = (done) => {
+    gulp.src(srcImgFiles + srcImgFileType)
+        .pipe(imagemin(
+            [
+                pngquant({ quality: [.65, .80], speed: 1 }),
+                mozjpeg({ quality: 80 }),
+                imagemin.svgo(),
+                imagemin.gifsicle()
+            ]
+        ))
+        .pipe(gulp.dest(destImgDir));
     done();
 };
 
@@ -112,51 +132,6 @@ const reloadBrowser = (done) => {
     done();
 };
 
-// 画像圧縮
-const minifyImage = (done) => {
-    gulp.src(srcImgFiles + srcImgFileType)
-        .pipe(imagemin(
-            [
-                pngquant({ quality: [.65, .80], speed: 1 }),
-                mozjpeg({ quality: 80 }),
-                imagemin.svgo(),
-                imagemin.gifsicle()
-            ]
-        ))
-        .pipe(gulp.dest(destImgDir));
-    done();
-};
-
-// destフォルダのファイル削除
-const clean = (done) => {
-    del([destFiles, '!' + destCssDir, '!' + destJsDir, '!' + destImgDir, '!' + destMovDir]);
-    done();
-};
-
-// HTMLファイル削除
-const htmlClean = (done) => {
-    del([destHtmlFiles]);
-    done();
-};
-
-// CSSファイル削除
-const cssClean = (done) => {
-    del([destCssFiles]);
-    done();
-};
-
-// JavaScriptファイル削除
-const jsClean = (done) => {
-    del([destJsFiles]);
-    done();
-};
-
-// 画像ファイル削除
-const imgClean = (done) => {
-    del([destImgFiles]);
-    done();
-};
-
 // タスク化
 exports.compileEjs = compileEjs;
 exports.compileSass = compileSass;
@@ -166,27 +141,20 @@ exports.reloadBrowser = reloadBrowser;
 exports.minifyImage = minifyImage;
 exports.copyMov = copyMov;
 exports.clean = clean;
-exports.htmlClean = htmlClean;
-exports.cssClean = cssClean;
-exports.jsClean = jsClean;
-exports.imgClean = imgClean;
 
 // 監視ファイル
 const watchFiles = (done) => {
-    gulp.watch(srcEjsFiles, gulp.series(htmlClean, compileEjs));
-    gulp.watch(destHtmlFiles, reloadBrowser);
-    gulp.watch(srcScssFiles, gulp.series(cssClean, compileSass));
-    gulp.watch(destCssFiles, reloadBrowser);
-    gulp.watch(srcJsFiles, gulp.series(jsClean, compileJs));
-    gulp.watch(destJsFiles, reloadBrowser);
-    gulp.watch(srcImgFiles, gulp.series(imgClean, minifyImage));
-    gulp.watch(destImgFiles, reloadBrowser);
-    gulp.watch(srcMovFiles, gulp.series(copyMov));
-    gulp.watch(destMovFiles, reloadBrowser);
+    gulp.watch(srcEjsFiles, gulp.series(compileEjs, reloadBrowser));
+    gulp.watch(srcScssFiles, gulp.series(compileSass, reloadBrowser));
+    gulp.watch(srcJsFiles, gulp.series(compileJs, reloadBrowser));
+    gulp.watch(srcImgFiles, gulp.series(minifyImage, reloadBrowser));
+    gulp.watch(srcMovFiles, gulp.series(copyMov, reloadBrowser));
     done();
 };
 
 // タスク実行
 exports.default = gulp.series(
-    clean, watchFiles, reloadFile, compileEjs, compileSass, compileJs, minifyImage, copyMov
+    clean,
+    gulp.parallel(compileEjs, compileSass, compileJs, minifyImage, copyMov),
+    gulp.parallel(watchFiles, reloadFile)  
 );
