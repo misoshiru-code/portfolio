@@ -197,26 +197,16 @@
                 margin: 40px 0;
             }
 
-            &:nth-of-type(1) .skill_title::before {
-                content: '\f121';
-                font-weight: 900
-            }
-
-            &:nth-of-type(2) .skill_title::before {
-                content: '\f201';
-                font-weight: 900
-            }
-
-            &:nth-of-type(3) .skill_title::before {
-                content: '\f108';
-                font-weight: 900
+            .size {
+                font-size: 10rem;
+                color: #f2003d;
+                line-height: 15rem;
             }
 
             .skill_title {
                 margin: 20px;
                 margin-top: 0;
                 font-size: 2rem;
-                text-transform: uppercase;
 
                 &::before {
                     margin: 0 auto 30px;
