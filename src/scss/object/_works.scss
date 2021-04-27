@@ -1,0 +1,157 @@
+.works {
+    padding: 80px 0;
+    color: $color_white;
+    background: $color_black;
+    position: relative;
+    z-index: 0;
+
+    @include mq() {
+        
+    }
+
+    .wrapper {
+        margin-top: 60px;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+
+        @include mq() {
+            
+        }
+
+        .work_box {
+            display: table-cell;
+            position: relative;
+
+            @include mq(lg) {
+                display: block;
+                height: 164px;
+            }
+
+            &:nth-of-type(1)::after {
+                background: url("../img/ecsite-mikan.png")
+            }
+
+            &:nth-of-type(2)::after {
+                background: url("../img/flower2.png")
+            }
+
+            &:nth-of-type(3)::after {
+                background: url("../img/flower3.png")
+            }
+
+            &:nth-of-type(4)::after {
+                background: url("../img/flower4.png")
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                background-size: 100% 100%;
+                transform: scaleY(-1);
+                opacity: 0.2;
+                z-index: -1;
+
+                @include mq(lg) {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    transform: none;
+                }
+            }
+
+            &:nth-of-type(odd) {
+                &:after {
+                    background-size: 100% 100%;
+                    top: 0;
+
+                    @include mq() {
+                        
+                    }
+
+                }
+                .image {
+                    margin-bottom: 0;
+                    margin-top: 60px;
+
+                    @include mq(lg) {
+                        margin-top: 0;
+                    }
+                }
+
+                .work_desc_out {
+                    top: 0;
+                }
+            }
+            
+            .image {
+                display: block;
+                margin-bottom: 60%;
+                width: 100%;
+
+                @include mq(lg) {
+                    display: none;
+                }
+            }
+            .work_desc_out {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                z-index: 0;
+
+                @include mq(lg) {
+                    position: relative;
+                    top: 0;
+                }
+
+                .work_desc_inner {
+                    padding: 20px;
+                    display: table;
+                    width: 100%;
+                    height: 100%;
+
+                    @include mq() {
+                        
+                    }
+
+                    .work_desc {
+                        display: table-cell;
+                        font-size: 1.2rem;
+                        line-height: 2;
+                        text-align: center;
+                        vertical-align: middle;
+
+                        @include mq() {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button_ghost {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 3px;
+    width: 60%;
+    color: $color_white !important;
+    border: solid 1px $color_white;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    transition: opacity 0.15s;
+    &:hover {
+        opacity: 0.8;
+    }
+
+}

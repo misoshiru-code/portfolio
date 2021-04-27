@@ -1,0 +1,16 @@
+.about {
+    padding: 80px 30px;
+    background: $color_white;
+    text-align: center;
+}
+
+.about_text {
+    margin: 30px 0;
+    font-size: 1.4rem;
+    line-height: 2.5;
+
+    @include mq(lg) {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+}
