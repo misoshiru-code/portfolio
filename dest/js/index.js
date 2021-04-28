@@ -60,6 +60,7 @@ $(function () {
 */
 
 // プログレス表示
+/*
 $(function () {
 
     imagesProgress();
@@ -113,3 +114,4 @@ $(function () {
     }
 
 });
+*/

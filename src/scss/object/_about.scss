@@ -14,3 +14,41 @@
         line-height: 1.8;
     }
 }
+
+.about_list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 30%;
+    @include mq() {
+        width: 80%;
+    }
+}
+
+.twitter {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .3s;
+    color:#d03c56;
+    &:hover {
+        color: #1C95E0;
+    }
+}
+.facebook {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .3s;
+    color: #d03c56;
+    &:hover {
+        color: #3C5997;
+    }
+}
+.github {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .3s;
+    color: #d03c56;
+    &:hover {
+        color: #2B3236;
+    }
+}
