@@ -29,7 +29,7 @@
     font-size: 5rem;
     line-height: 10rem;
     transition: .5s;
-    color:#d03c56;
+    color:$color-black;
     &:hover {
         transform:scale(1.2,1.2);
         color: #1C95E0;
@@ -39,7 +39,7 @@
     font-size: 5rem;
     line-height: 10rem;
     transition: .5s;
-    color: #d03c56;
+    color: $color-black;
     &:hover {
         transform:scale(1.2,1.2);
         color: #3C5997;
@@ -49,7 +49,7 @@
     font-size: 5rem;
     line-height: 10rem;
     transition: .5s;
-    color: #d03c56;
+    color: $color-black;
     &:hover {
         transform:scale(1.2,1.2);
         color: #2B3236;

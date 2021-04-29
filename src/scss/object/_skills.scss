@@ -19,9 +19,8 @@
         }
 
         .skill_box {
-            text-align: center;
             width: 25%;
-
+            text-align: center;
             @include mq(lg) {
                 width: 100%;
                 margin: 40px 0;
@@ -46,7 +45,8 @@
             .desc {
                 margin: 0 20px;
                 font-size: 1.4rem;
-
+                line-height: 1.8;
+                text-align: left;
                 @include mq(lg) {
                     margin: 0 auto;
                     font-size: 1.3rem;

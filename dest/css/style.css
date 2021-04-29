@@ -291,7 +291,7 @@ a:link, a:hover, a:visited, a:active {
   line-height: 10rem;
   -webkit-transition: .5s;
   transition: .5s;
-  color: #d03c56;
+  color: #383634;
 }
 
 .twitter:hover {
@@ -305,7 +305,7 @@ a:link, a:hover, a:visited, a:active {
   line-height: 10rem;
   -webkit-transition: .5s;
   transition: .5s;
-  color: #d03c56;
+  color: #383634;
 }
 
 .facebook:hover {
@@ -319,7 +319,7 @@ a:link, a:hover, a:visited, a:active {
   line-height: 10rem;
   -webkit-transition: .5s;
   transition: .5s;
-  color: #d03c56;
+  color: #383634;
 }
 
 .github:hover {
@@ -347,7 +347,7 @@ a:link, a:hover, a:visited, a:active {
   height: 100%;
   background: #383634 url("../img/contact-img.jpg");
   background-position: 50% 50%;
-  background-size: auto 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   top: 0;
@@ -518,6 +518,7 @@ a:link, a:hover, a:visited, a:active {
 
 .promise p {
   font-size: 1.4rem;
+  line-height: 1.8;
 }
 
 .promise-wrapper {
@@ -611,8 +612,8 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .skills .wrapper .skill_box {
-  text-align: center;
   width: 25%;
+  text-align: center;
 }
 
 .skills .wrapper .skill_box .size {
@@ -636,6 +637,8 @@ a:link, a:hover, a:visited, a:active {
 .skills .wrapper .skill_box .desc {
   margin: 0 20px;
   font-size: 1.4rem;
+  line-height: 1.8;
+  text-align: left;
 }
 
 .top_main {
@@ -681,6 +684,86 @@ a:link, a:hover, a:visited, a:active {
   z-index: 0;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.scroll-text {
+  position: absolute;
+  bottom: 7rem;
+  right: 8.1rem;
+  color: #fafafa;
+  font-size: 1.4rem;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  z-index: 1;
+}
+
+.scroll-guide {
+  position: absolute;
+  right: 10.5rem;
+  bottom: 2rem;
+  height: 5rem;
+  z-index: 1;
+}
+
+.scroll-guide i {
+  display: block;
+  width: 2px;
+  height: 50px;
+  margin-top: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-guide i:before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: scroll_guide_animation 2s infinite normal;
+          animation: scroll_guide_animation 2s infinite normal;
+}
+
+@-webkit-keyframes scroll_guide_animation {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+  15% {
+    -webkit-transform: translate3d(0, -98%, 0);
+            transform: translate3d(0, -98%, 0);
+  }
+  85% {
+    -webkit-transform: translate3d(0, 98%, 0);
+            transform: translate3d(0, 98%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes scroll_guide_animation {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+  15% {
+    -webkit-transform: translate3d(0, -98%, 0);
+            transform: translate3d(0, -98%, 0);
+  }
+  85% {
+    -webkit-transform: translate3d(0, 98%, 0);
+            transform: translate3d(0, 98%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
 }
 
 .works {
@@ -729,12 +812,15 @@ a:link, a:hover, a:visited, a:active {
 
 .works .work_heading {
   color: #fafafa;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-top: 1rem;
 }
 
 .works .work_desc {
   color: #fafafa;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.8;
 }
 
 @media screen and (min-width: 769px) and (max-width: 1000px) {
@@ -864,5 +950,11 @@ a:link, a:hover, a:visited, a:active {
   }
   .top_main .text .desc {
     font-size: 1.4rem;
+  }
+  .scroll-text {
+    right: -0.4rem;
+  }
+  .scroll-guide {
+    right: 2rem;
   }
 }
