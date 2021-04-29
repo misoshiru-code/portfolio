@@ -50,32 +50,17 @@ $(function () {
 
 });
 
-/*
-// blog.htmlのサイト内検索の開閉
-$(function () {
-    var duration = 1000;
-
-    $('.icon').on('click', function () {
-        $('.search_input_wrap').toggleClass('open2');
-
-        if ($('.search_input_wrap').hasClass('open2')) {
-            $('.search_input_wrap').stop(true).animate({
-                width: '240px'
-            }, duration, 'easeOutExpo');
-            $('.icon').stop(true).animate({
-                left: '38%'
-            }, duration, 'easeOutExpo');
-        } else {
-            $('.search_input_wrap').stop(true).animate({
-                width: '0'
-            }, duration, 'easeOutExpo');
-            $('.icon').stop(true).animate({
-                left: '49%'
-            }, duration, 'easeOutExpo');
-        };
-    });
+//アコーディオンをクリックした時の動作
+$('.title').on('click', function() {//タイトル要素をクリックしたら
+	var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+	$(findElm).slideToggle();//アコーディオンの上下動作
+    
+	if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
+		$(this).removeClass('close');//クラス名を除去し
+	}else{//それ以外は
+		$(this).addClass('close');//クラス名closeを付与
+	}
 });
-*/
 
 // プログレス表示
 /*

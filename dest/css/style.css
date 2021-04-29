@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -7,7 +8,7 @@ body {
 }
 
 * {
-  font-family: 'Alata', sans-serif;
+  font-family: 'Alata', 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
 
 p, h1, h2, h3, dl, ol, ul {
@@ -510,14 +511,87 @@ a:link, a:hover, a:visited, a:active {
 }
 */
 .promise {
-  padding: 80px 0;
+  padding: 8rem 0;
   background: #383634;
   color: #fafafa;
 }
 
 .promise p {
-  text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.promise-wrapper {
+  margin-top: 6rem;
+}
+
+/*アコーディオン全体*/
+.promise-list {
+  list-style: none;
+  width: 90%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.promise-list li {
+  margin: 1rem 0;
+}
+
+.promise-list section {
+  border-bottom: 1px solid #fafafa;
+}
+
+.title {
+  position: relative;
+  /*+マークの位置基準とするためrelative指定*/
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: normal;
+  padding: 2% 2% 2% 5rem;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+/*アイコンの＋と×*/
+.title::before,
+.title::after {
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 2px;
+  background-color: #fafafa;
+}
+
+.title::before {
+  top: 48%;
+  left: 15px;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.title::after {
+  top: 48%;
+  left: 15px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/*closeというクラスがついたら形状変化*/
+.title.close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.title.close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+  display: none;
+  /*はじめは非表示*/
+  margin: 0 2% 2% 4.5%;
+  padding: 2%;
 }
 
 .skills {
