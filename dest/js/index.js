@@ -3,15 +3,15 @@
 const setFillHeight = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-  
-  // 画面のサイズ変動があった時に高さを再計算する
-  window.addEventListener('resize', setFillHeight);
-  
-  // 初期化
-  setFillHeight();
+}
 
-  
+// 画面のサイズ変動があった時に高さを再計算する
+window.addEventListener('resize', setFillHeight);
+
+// 初期化
+setFillHeight();
+
+
 
 // メニューの開閉
 $(function () {
@@ -31,35 +31,61 @@ $(function () {
         };
     });
 
+    //ページトップへのスクロール
+    $('.page-top').click(function () {
+        //class名.page-topがクリックされたら、以下の処理を実行
+        $("html,body").animate({ scrollTop: 0 }, "300"); //300ms
+    });
+    //ページトップの出現
+    $('.page-top').hide();
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 600) { //600px
+            $('.page-top').fadeIn(600); //600ms
+        } else {
+            $('.page-top').fadeOut(600); //600ms
+        }
+    });
+    //ホバーイベント
+    $(".page-top").hover(
+        function () {
+            $(this).animate({
+                opacity: "0.7"
+            }, 300); //300ms
+        },
+        function () {
+            $(this).animate({
+                opacity: "1"
+            }, 300); //300ms
+        });
 
-// worksスライダー
+    // worksスライダー
 
     $('.work-wrapper').slick({
         dots: false,
         arrows: false,
         autoplay: true,
         autoplaySpeed: 0,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
-		speed: 6900,//スライドのスピード。初期値は300。
+        speed: 6900,//スライドのスピード。初期値は300。
         infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
-		pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
-		cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
-		slidesToShow: 3,//スライドを画面に4枚見せる
-		slidesToScroll: 1,//1回のスライドで動かす要素数
-        });
+        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+        pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
+        cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
+        slidesToShow: 3,//スライドを画面に4枚見せる
+        slidesToScroll: 1,//1回のスライドで動かす要素数
+    });
 
 });
 
 //アコーディオンをクリックした時の動作
-$('.title').on('click', function() {//タイトル要素をクリックしたら
-	var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
-	$(findElm).slideToggle();//アコーディオンの上下動作
-    
-	if($(this).hasClass('close')){//タイトル要素にクラス名closeがあれば
-		$(this).removeClass('close');//クラス名を除去し
-	}else{//それ以外は
-		$(this).addClass('close');//クラス名closeを付与
-	}
+$('.title').on('click', function () {//タイトル要素をクリックしたら
+    var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+    $(findElm).slideToggle();//アコーディオンの上下動作
+
+    if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
+        $(this).removeClass('close');//クラス名を除去し
+    } else {//それ以外は
+        $(this).addClass('close');//クラス名closeを付与
+    }
 });
 
 // プログレス表示

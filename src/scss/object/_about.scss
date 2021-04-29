@@ -1,20 +1,37 @@
+.page-top {
+	position: fixed;
+	right: 3rem;
+	bottom: 3rem;
+    cursor: pointer;
+    background: $color-white;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    z-index: 10;
+    .size {
+        font-size: 5rem;
+        color: $color_black;
+        line-height: 5rem;
+        transition: .3s;
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
 .about {
     padding: 80px 30px;
     background: $color_white;
     text-align: center;
 }
-
 .about_text {
     margin: 30px 0;
     font-size: 1.4rem;
     line-height: 2.5;
-
     @include mq(lg) {
         font-size: 1.3rem;
         line-height: 1.8;
     }
 }
-
 .about_list {
     display: flex;
     justify-content: space-between;
@@ -24,7 +41,6 @@
         width: 80%;
     }
 }
-
 .twitter {
     font-size: 5rem;
     line-height: 10rem;

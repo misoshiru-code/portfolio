@@ -5,19 +5,16 @@
     overflow: hidden;
     background: $color_black;
     z-index: 0;
-
     .text {
         padding: 0 10rem;
         position: absolute;
         bottom: 50px;
         z-index: 1;
-
         @include mq() {
             padding: 0 3rem;
             bottom: 50px;
             z-index: 1;
         }
-
         .sub_title {
             margin-bottom: 0.5rem;
             font-size: 4rem;
@@ -28,7 +25,6 @@
                 font-size: 3rem;
             }
         }
-
         .name {
             margin-bottom: 1rem;
             font-size: 2.8rem;
@@ -39,7 +35,6 @@
                 font-size: 2.3rem;
             }
         }
-
         .desc {
             font-size: 1.8rem;
             color: $color_white;
@@ -47,13 +42,11 @@
             @include mq(lg) {
                 font-size: 1.4rem;
             }
-
             @include mq() {
                 font-size: 1.9rem;
             }
         }
     }
-
     .video {
         position: absolute;
         top: 0;
@@ -65,7 +58,6 @@
         object-fit: cover;
     }
 }
-
 .scroll-text {
     position: absolute;
     bottom: 7rem;
@@ -78,7 +70,6 @@
         right: -0.4rem;
     }
 }
-
 .scroll-guide {
     position: absolute;
 	right: 10.5rem;
@@ -89,7 +80,6 @@
         right: 2rem;
     }
   }
-
   .scroll-guide i {
     display: block;
     width: 2px;
@@ -99,7 +89,6 @@
     overflow: hidden;
     position: relative;
   }
-
   .scroll-guide i:before {
     display: block;
     content: "";
@@ -111,7 +100,6 @@
     left: 0;
     animation: scroll_guide_animation 2s infinite normal;
   }
-
   @keyframes scroll_guide_animation {
     0% {
       transform: translate3d(0, -100%, 0);

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -263,6 +264,30 @@ a:link, a:hover, a:visited, a:active {
   width: 30px;
 }
 
+.page-top {
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  cursor: pointer;
+  background: #fafafa;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.page-top .size {
+  font-size: 5rem;
+  color: #383634;
+  line-height: 5rem;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.page-top .size:hover {
+  opacity: .8;
+}
+
 .about {
   padding: 80px 30px;
   background: #fafafa;
@@ -372,7 +397,7 @@ a:link, a:hover, a:visited, a:active {
   width: 50%;
 }
 
-.contact .contact_form .inpput_name, .contact .contact_form .inpput_text {
+.contact .contact_form .input_name, .contact .contact_form .input_text {
   margin-bottom: 10px;
   padding: 15px;
   display: block;
@@ -387,41 +412,41 @@ a:link, a:hover, a:visited, a:active {
   text-transform: uppercase;
 }
 
-.contact .contact_form .inpput_name::-webkit-input-placeholder, .contact .contact_form .inpput_text::-webkit-input-placeholder {
+.contact .contact_form .input_name::-webkit-input-placeholder, .contact .contact_form .input_text::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .inpput_name::-moz-placeholder, .contact .contact_form .inpput_text::-moz-placeholder {
+.contact .contact_form .input_name::-moz-placeholder, .contact .contact_form .input_text::-moz-placeholder {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .inpput_name:-ms-input-placeholder, .contact .contact_form .inpput_text:-ms-input-placeholder {
+.contact .contact_form .input_name:-ms-input-placeholder, .contact .contact_form .input_text:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .inpput_name::-ms-input-placeholder, .contact .contact_form .inpput_text::-ms-input-placeholder {
+.contact .contact_form .input_name::-ms-input-placeholder, .contact .contact_form .input_text::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .inpput_name::placeholder, .contact .contact_form .inpput_text::placeholder {
+.contact .contact_form .input_name::placeholder, .contact .contact_form .input_text::placeholder {
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .inpput_text {
+.contact .contact_form .input_text {
   height: 150px;
 }
 
-.contact .contact_form .inpput_btn {
+.contact .contact_form .input_btn {
   margin: 40px auto 0;
   padding: 15px;
   display: block;
@@ -436,7 +461,7 @@ a:link, a:hover, a:visited, a:active {
   outline: none;
 }
 
-.contact .contact_form .inpput_btn:hover {
+.contact .contact_form .input_btn:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
