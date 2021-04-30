@@ -10,18 +10,20 @@
     height: 12rem;
     background: linear-gradient(to bottom, $color-black 0%, rgba(56, 54, 52, .5) 60%, transparent);
     z-index: 1;
-}
-.header_inner {
-    height: 10rem;
-    margin: 0 auto;
-    padding: 0 10rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include mq(lg) {
-        padding: 0 3rem;
+
+    &-inner {
+        height: 10rem;
+        margin: 0 auto;
+        padding: 0 10rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include mq(lg) {
+            padding: 0 3rem;
+        }
     }
-    .logo {
+
+    &-logo {
         font-size: 3rem;
         @include mq() {
             font-size: 2rem;
@@ -35,48 +37,51 @@
             }
         }
     }
-    .nav {
-        ul {
-            display: flex;
-            align-items: center;
-            margin: 0;
-            a {
-                font-size: 2rem;
-                color: $color_white;
-                margin-left: 3rem;
-                position: relative;
-                display: inline-block;
-                text-decoration: none;
-            }
-            a::after {
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                content: '';
-                width: 100%;
-                height: 2px;
-                background: $color_white;
-                transform: scale(0, 1);
-                transform-origin: left top;
-                transition: transform .3s;
-            }
-            a:hover::after {
-                transform: scale(1, 1);
-            }
+}
+
+.nav {
+    &-list {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        a {
+            font-size: 2rem;
+            color: $color_white;
+            margin-left: 3rem;
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
         }
-        @include mq() {
-            display: none;
+        a::after {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: $color_white;
+            transform: scale(0, 1);
+            transform-origin: left top;
+            transition: transform .3s;
+        }
+        a:hover::after {
+            transform: scale(1, 1);
         }
     }
+    @include mq() {
+        display: none;
+    }
 }
-.menu_trigger {
+
+.openbtn {
     display: none;
     cursor: pointer;
+    z-index: 110;
     @include mq() {
         display: block;
     }
     .top, .middle, .bottom {
-        margin-bottom: 8px;
+        margin-bottom: .8rem;
         display: block;
         height: 2px;
         background: $color_white;

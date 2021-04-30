@@ -39,7 +39,7 @@ const destFiles = './dest/**/*';
 
 // destフォルダのファイル削除
 const clean = (done) => {
-    del([destFiles, '!' + destCssDir, '!' + destJsDir, '!' + destImgDir, '!' + destMovDir]);
+    del([destFiles, '!' + destCssDir, '!' + destJsDir]);
     done();
 };
 
@@ -143,7 +143,7 @@ const watchFiles = (done) => {
     gulp.watch(srcScssFiles, gulp.series(compileSass, reloadBrowser));
     gulp.watch(srcJsFiles, gulp.series(compileJs, reloadBrowser));
     gulp.watch(srcImgFiles, gulp.series(minifyImage, reloadBrowser));
-    gulp.watch(srcMovFiles, gulp.series(copyMov, reloadBrowser));
+    gulp.watch(srcMovFiles, gulp.series(copyMov));
     done();
 };
 

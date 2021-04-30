@@ -68,7 +68,7 @@ a:link, a:hover, a:visited, a:active {
   color: #fafafa;
 }
 
-.nav_bg {
+.bnav {
   background: rgba(0, 0, 0, 0.95);
   position: fixed;
   top: 0;
@@ -78,7 +78,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 100;
 }
 
-.nav_bg .nav_bg_inner {
+.bnav-inner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -91,28 +91,39 @@ a:link, a:hover, a:visited, a:active {
   height: 100%;
 }
 
-.nav_bg .nav_bg_inner .global_nav {
+.bnav-aside {
+  font-size: 2.5rem;
+  color: #383634;
+  padding-left: 12.5%;
+  padding-top: 7.5rem;
+}
+
+.bnav-aside h2 {
+  font-size: 3rem;
+}
+
+.gnav {
   padding-right: 12.5%;
   color: #fafafa;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul {
+.gnav-list {
   list-style-type: none;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li {
+.gnav-list-item {
   -webkit-transition: -webkit-transform 0.7s;
   transition: -webkit-transform 0.7s;
   transition: transform 0.7s;
   transition: transform 0.7s, -webkit-transform 0.7s;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li:hover {
+.gnav-list-item:hover {
   -webkit-transform: translateX(36px);
           transform: translateX(36px);
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li a {
+.gnav-list-item a {
   font-size: 5rem;
   line-height: 1.75;
   color: #383634;
@@ -120,7 +131,7 @@ a:link, a:hover, a:visited, a:active {
   transition: color 0.5s;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li a::before {
+.gnav-list-item a::before {
   content: '';
   display: block;
   position: absolute;
@@ -133,24 +144,13 @@ a:link, a:hover, a:visited, a:active {
   transition: width 0.8s;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li a:hover {
+.gnav-list-item a:hover {
   color: #fafafa;
 }
 
-.nav_bg .nav_bg_inner .global_nav ul li a:hover::before {
+.gnav-list-item a:hover::before {
   background: #fafafa;
   width: 3.6rem;
-}
-
-.nav_bg .nav_bg_inner .nav_aside {
-  font-size: 2.5rem;
-  color: #383634;
-  padding-left: 12.5%;
-  padding-top: 7.5rem;
-}
-
-.nav_bg .nav_bg_inner .nav_aside h2 {
-  font-size: 3rem;
 }
 
 .header {
@@ -164,7 +164,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 1;
 }
 
-.header_inner {
+.header-inner {
   height: 10rem;
   margin: 0 auto;
   padding: 0 10rem;
@@ -179,22 +179,22 @@ a:link, a:hover, a:visited, a:active {
           align-items: center;
 }
 
-.header_inner .logo {
+.header-logo {
   font-size: 3rem;
 }
 
-.header_inner .logo a {
+.header-logo a {
   text-decoration: none;
   color: #fafafa;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.header_inner .logo a:hover {
+.header-logo a:hover {
   opacity: 0.5;
 }
 
-.header_inner .nav ul {
+.nav-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,7 +204,7 @@ a:link, a:hover, a:visited, a:active {
   margin: 0;
 }
 
-.header_inner .nav ul a {
+.nav-list a {
   font-size: 2rem;
   color: #fafafa;
   margin-left: 3rem;
@@ -213,7 +213,7 @@ a:link, a:hover, a:visited, a:active {
   text-decoration: none;
 }
 
-.header_inner .nav ul a::after {
+.nav-list a::after {
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -231,36 +231,37 @@ a:link, a:hover, a:visited, a:active {
   transition: transform .3s, -webkit-transform .3s;
 }
 
-.header_inner .nav ul a:hover::after {
+.nav-list a:hover::after {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
 }
 
-.menu_trigger {
+.openbtn {
   display: none;
   cursor: pointer;
+  z-index: 110;
 }
 
-.menu_trigger .top, .menu_trigger .middle, .menu_trigger .bottom {
-  margin-bottom: 8px;
+.openbtn .top, .openbtn .middle, .openbtn .bottom {
+  margin-bottom: .8rem;
   display: block;
   height: 2px;
   background: #fafafa;
 }
 
-.menu_trigger .top:last-child, .menu_trigger .middle:last-child, .menu_trigger .bottom:last-child {
+.openbtn .top:last-child, .openbtn .middle:last-child, .openbtn .bottom:last-child {
   margin: 0;
 }
 
-.menu_trigger .top {
+.openbtn .top {
   width: 50px;
 }
 
-.menu_trigger .middle {
+.openbtn .middle {
   width: 40px;
 }
 
-.menu_trigger .bottom {
+.openbtn .bottom {
   width: 30px;
 }
 
@@ -269,7 +270,7 @@ a:link, a:hover, a:visited, a:active {
   right: 3rem;
   bottom: 3rem;
   cursor: pointer;
-  background: #fafafa;
+  background: rgba(250, 250, 250, 0.8);
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -1089,10 +1090,10 @@ a:link, a:hover, a:visited, a:active {
   .sp-only {
     display: block;
   }
-  .nav_bg {
+  .bnav {
     display: block;
   }
-  .nav_bg .nav_bg_inner {
+  .bnav-inner {
     -webkit-box-align: normal;
         -ms-flex-align: normal;
             align-items: normal;
@@ -1101,25 +1102,25 @@ a:link, a:hover, a:visited, a:active {
     top: 17%;
     left: 4rem;
   }
-  .nav_bg .nav_bg_inner .global_nav ul {
-    padding: 0;
-  }
-  .nav_bg .nav_bg_inner .global_nav ul li a {
-    font-size: 4.3rem;
-    line-height: 1.5;
-  }
-  .nav_bg .nav_bg_inner .nav_aside {
+  .bnav-aside {
     font-size: 1.8rem;
     padding-left: 0;
     padding-top: 2rem;
   }
-  .header_inner .logo {
+  .gnav-list {
+    padding: 0;
+  }
+  .gnav-list-item a {
+    font-size: 4.3rem;
+    line-height: 1.5;
+  }
+  .header-logo {
     font-size: 2rem;
   }
-  .header_inner .nav {
+  .nav {
     display: none;
   }
-  .menu_trigger {
+  .openbtn {
     display: block;
   }
   .page-top {
@@ -1158,6 +1159,12 @@ a:link, a:hover, a:visited, a:active {
   .top_main .text .desc {
     font-size: 1.9rem;
   }
+  .scroll-text {
+    right: -0.4rem;
+  }
+  .scroll-guide {
+    right: 2rem;
+  }
   #works .work_heading {
     font-size: 1.4rem;
   }
@@ -1167,7 +1174,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 @media screen and (max-width: 1024px) {
-  .nav_bg {
+  .bnav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1178,10 +1185,10 @@ a:link, a:hover, a:visited, a:active {
         -ms-flex-align: center;
             align-items: center;
   }
-  .nav_bg .nav_bg_inner .global_nav {
+  .gnav {
     padding-right: 0;
   }
-  .header_inner {
+  .header-inner {
     padding: 0 3rem;
   }
   #about .heading {
@@ -1227,12 +1234,6 @@ a:link, a:hover, a:visited, a:active {
   }
   .top_main .text .desc {
     font-size: 1.4rem;
-  }
-  .scroll-text {
-    right: -0.4rem;
-  }
-  .scroll-guide {
-    right: 2rem;
   }
   #works .heading {
     padding-bottom: 1.5rem;

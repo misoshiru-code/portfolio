@@ -17,7 +17,7 @@ setFillHeight();
 $(function () {
     var duration = 1000;
 
-    $('.menu_trigger').on('click', function () {
+    $('.openbtn').on('click', function () {
         $('.nav_bg').toggleClass('open');
 
         if ($('.nav_bg').hasClass('open')) {
@@ -88,12 +88,12 @@ $(function () {
     $('.work-wrapper').slick({
         dots: false,
         arrows: false,
-        autoplay: false,
-        autoplaySpeed: 1000,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
-        speed: 3000,//スライドのスピード。初期値は300。
+        autoplay: true,
+        autoplaySpeed: 0,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
+        speed: 5000,//スライドのスピード。初期値は300。
         infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-        //pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
-        //pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
+        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+        pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
         cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
         slidesToShow: 3,//スライドを画面に3枚見せる
         slidesToScroll: 1,//1回のスライドで動かす要素数
@@ -109,23 +109,20 @@ $(function () {
             }
         }]
     });
-});
 
-//アコーディオンをクリックした時の動作
-$('.title').on('click', function () {//タイトル要素をクリックしたら
-    var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
-    $(findElm).slideToggle();//アコーディオンの上下動作
+    //アコーディオンをクリックした時の動作
+    $('.title').on('click', function () {//タイトル要素をクリックしたら
+        var findElm = $(this).next(".box");//直後のアコーディオンを行うエリアを取得し
+        $(findElm).slideToggle();//アコーディオンの上下動作
 
-    if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
-        $(this).removeClass('close');//クラス名を除去し
-    } else {//それ以外は
-        $(this).addClass('close');//クラス名closeを付与
-    }
-});
+        if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
+            $(this).removeClass('close');//クラス名を除去し
+        } else {//それ以外は
+            $(this).addClass('close');//クラス名closeを付与
+        }
+    });
 
 // プログレス表示
-/*
-$(function () {
 
     imagesProgress();
 
@@ -176,6 +173,4 @@ $(function () {
             }
         }
     }
-
 });
-*/

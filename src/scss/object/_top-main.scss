@@ -61,7 +61,7 @@
     font-size: 1.4rem;
     transform: rotate(90deg);
     z-index: 1;
-    @include mq(lg) {
+    @include mq() {
         right: -0.4rem;
     }
 }
@@ -71,7 +71,7 @@
 	bottom: 2rem;
     height: 5rem;
     z-index: 1;
-    @include mq(lg) {
+    @include mq() {
         right: 2rem;
     }
   }
