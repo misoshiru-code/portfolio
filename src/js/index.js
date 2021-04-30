@@ -18,14 +18,14 @@ $(function () {
     var duration = 1000;
 
     $('.openbtn').on('click', function () {
-        $('.nav_bg').toggleClass('open');
+        $('.bnav').toggleClass('open');
 
-        if ($('.nav_bg').hasClass('open')) {
-            $('.nav_bg').stop(true).animate({
+        if ($('.bnav').hasClass('open')) {
+            $('.bnav').stop(true).animate({
                 left: '0'
             }, duration, 'easeOutExpo');
         } else {
-            $('.nav_bg').stop(true).animate({
+            $('.bnav').stop(true).animate({
                 left: '100%'
             }, duration, 'easeOutExpo');
         };

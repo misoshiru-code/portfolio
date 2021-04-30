@@ -111,19 +111,19 @@ a:link, a:hover, a:visited, a:active {
   list-style-type: none;
 }
 
-.gnav-list-item {
+.gnav-item {
   -webkit-transition: -webkit-transform 0.7s;
   transition: -webkit-transform 0.7s;
   transition: transform 0.7s;
   transition: transform 0.7s, -webkit-transform 0.7s;
 }
 
-.gnav-list-item:hover {
+.gnav-item:hover {
   -webkit-transform: translateX(36px);
           transform: translateX(36px);
 }
 
-.gnav-list-item a {
+.gnav-item a {
   font-size: 5rem;
   line-height: 1.75;
   color: #383634;
@@ -131,7 +131,7 @@ a:link, a:hover, a:visited, a:active {
   transition: color 0.5s;
 }
 
-.gnav-list-item a::before {
+.gnav-item a::before {
   content: '';
   display: block;
   position: absolute;
@@ -144,11 +144,11 @@ a:link, a:hover, a:visited, a:active {
   transition: width 0.8s;
 }
 
-.gnav-list-item a:hover {
+.gnav-item a:hover {
   color: #fafafa;
 }
 
-.gnav-list-item a:hover::before {
+.gnav-item a:hover::before {
   background: #fafafa;
   width: 3.6rem;
 }
@@ -1110,7 +1110,7 @@ a:link, a:hover, a:visited, a:active {
   .gnav-list {
     padding: 0;
   }
-  .gnav-list-item a {
+  .gnav-item a {
     font-size: 4.3rem;
     line-height: 1.5;
   }
