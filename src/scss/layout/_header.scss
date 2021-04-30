@@ -13,11 +13,12 @@
 }
 .header_inner {
     height: 10rem;
+    margin: 0 auto;
     padding: 0 10rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @include mq() {
+    @include mq(lg) {
         padding: 0 3rem;
     }
     .logo {
@@ -42,7 +43,7 @@
             a {
                 font-size: 2rem;
                 color: $color_white;
-                margin-left: 2rem;
+                margin-left: 3rem;
                 position: relative;
                 display: inline-block;
                 text-decoration: none;
@@ -70,15 +71,9 @@
 }
 .menu_trigger {
     display: none;
-    position: fixed;
-    top: 10%;
-    right: 12%;
-    z-index: 101;
     cursor: pointer;
     @include mq() {
         display: block;
-        top: 5.5%;
-        right: 10%;
     }
     .top, .middle, .bottom {
         margin-bottom: 8px;

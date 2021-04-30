@@ -166,6 +166,7 @@ a:link, a:hover, a:visited, a:active {
 
 .header_inner {
   height: 10rem;
+  margin: 0 auto;
   padding: 0 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,7 +207,7 @@ a:link, a:hover, a:visited, a:active {
 .header_inner .nav ul a {
   font-size: 2rem;
   color: #fafafa;
-  margin-left: 2rem;
+  margin-left: 3rem;
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -237,10 +238,6 @@ a:link, a:hover, a:visited, a:active {
 
 .menu_trigger {
   display: none;
-  position: fixed;
-  top: 10%;
-  right: 12%;
-  z-index: 101;
   cursor: pointer;
 }
 
@@ -316,7 +313,7 @@ a:link, a:hover, a:visited, a:active {
   font-size: 1.6rem;
   color: #d03c56;
   text-align: center;
-  cursor: pointer;
+  cursor: default;
 }
 
 #about .linkbox .read_more::after {
@@ -724,6 +721,26 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
+#skills .skill_textbox {
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 10rem;
+  text-align: center;
+}
+
+#skills .skill_textbox .skill_heading {
+  font-size: 2rem;
+  color: #383634;
+  margin: 5rem 0 0;
+}
+
+#skills .skill_textbox .skill_text {
+  font-size: 1.4rem;
+  color: #383634;
+  margin: 2rem 0 0;
+}
+
 #skills .linkbox {
   position: relative;
 }
@@ -735,7 +752,7 @@ a:link, a:hover, a:visited, a:active {
   font-size: 1.6rem;
   color: #d03c56;
   text-align: center;
-  cursor: pointer;
+  cursor: default;
 }
 
 #skills .linkbox .read_more::after {
@@ -824,7 +841,7 @@ a:link, a:hover, a:visited, a:active {
   left: 0;
   height: 100%;
   width: auto;
-  opacity: 0.5;
+  opacity: 0.7;
   z-index: 0;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1009,7 +1026,7 @@ a:link, a:hover, a:visited, a:active {
   font-size: 1.6rem;
   color: #fafafa;
   text-align: center;
-  cursor: pointer;
+  cursor: default;
 }
 
 #works .linkbox .read_more::after {
@@ -1096,9 +1113,6 @@ a:link, a:hover, a:visited, a:active {
     padding-left: 0;
     padding-top: 2rem;
   }
-  .header_inner {
-    padding: 0 3rem;
-  }
   .header_inner .logo {
     font-size: 2rem;
   }
@@ -1107,8 +1121,6 @@ a:link, a:hover, a:visited, a:active {
   }
   .menu_trigger {
     display: block;
-    top: 5.5%;
-    right: 10%;
   }
   .page-top {
     display: none !important;
@@ -1118,6 +1130,16 @@ a:link, a:hover, a:visited, a:active {
   }
   #contact {
     padding: 8rem 0;
+  }
+  #promise p {
+    font-size: 1.2rem;
+  }
+  .promise-list li {
+    margin: 2rem 0;
+  }
+  .title {
+    font-size: 1.4rem;
+    padding: 4% 4% 4% 5rem;
   }
   #skills .wrapper {
     width: 80%;
@@ -1158,6 +1180,9 @@ a:link, a:hover, a:visited, a:active {
   }
   .nav_bg .nav_bg_inner .global_nav {
     padding-right: 0;
+  }
+  .header_inner {
+    padding: 0 3rem;
   }
   #about .heading {
     padding-bottom: 1.5rem;

@@ -88,16 +88,21 @@ $(function () {
     $('.work-wrapper').slick({
         dots: false,
         arrows: false,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 1000,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
         speed: 3000,//スライドのスピード。初期値は300。
         infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+        //pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
         //pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
         cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
         slidesToShow: 3,//スライドを画面に3枚見せる
         slidesToScroll: 1,//1回のスライドで動かす要素数
         responsive: [{
+            breakpoint: 1024,//tb画面の時、2枚表示
+            settings: {
+                slidesToShow: 2,
+            }
+        },{
             breakpoint: 768,//SP画面の時、1枚表示
             settings: {
                 slidesToShow: 1,

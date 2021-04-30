@@ -30,16 +30,11 @@ const srcMovFiles = './src/mov/**/*'
 
 // ファイルパス：コンパイル後
 const destDir = './dest/';
-const destHtmlFiles = './dest/*.html';
 const destIndexHtml = 'index.html';
 const destCssDir = './dest/css';
-const destCssFiles = './dest/css/*.css';
 const destJsDir = './dest/js';
-const destJsFiles = './dest/js/*.js';
 const destImgDir = './dest/img';
-const destImgFiles = './dest/img/*';
 const destMovDir = './dest/mov';
-const destMovFiles = './dest/mov/**/*'
 const destFiles = './dest/**/*';
 
 // destフォルダのファイル削除

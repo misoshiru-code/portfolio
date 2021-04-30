@@ -8,6 +8,9 @@
     p {
         font-size: 1.4rem;
         line-height: 1.8;
+        @include mq() {
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -23,6 +26,9 @@
     margin:0 auto;
     li {
         margin: 1rem 0;
+        @include mq() {
+            margin: 2rem 0;
+        }
     }
     section {
         border-bottom: 1px solid $color_white;
@@ -36,6 +42,10 @@
     font-weight: normal;
     padding: 2% 2% 2% 5rem;
     transition: all .5s ease;
+    @include mq() {
+        font-size: 1.4rem;
+        padding: 4% 4% 4% 5rem;
+    }
 }
 
 /*アイコンの＋と×*/
