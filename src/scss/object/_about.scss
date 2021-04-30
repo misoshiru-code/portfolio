@@ -28,9 +28,16 @@
     .heading {
         @include heading();
     }
-    .read_more {
+    .linkbox {
+        position: relative;
+        .read_more {
         @include read_more();
+        }
+        .balloon {
+        @include balloon();
+        }
     }
+    
 }
 .about_text {
     margin: 3rem 0;

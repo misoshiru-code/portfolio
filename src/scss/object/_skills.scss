@@ -22,7 +22,7 @@
             border-radius: 5px;
             transition: .5s;
             &:hover {
-                box-shadow: 0 0 5px 5px rgba(56,54,52,.5);
+                box-shadow: 0 0 5px 5px rgba(56,54,52,.3);
             }
             @include mq() {
                 width: 100%;
@@ -59,7 +59,13 @@
             }
         }
     }
-    .read_more {
+    .linkbox {
+        position: relative;
+        .read_more {
         @include read_more();
+        }
+        .balloon {
+        @include balloon();
+        }
     }
 }

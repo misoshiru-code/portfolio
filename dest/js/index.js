@@ -71,6 +71,18 @@ $(function () {
             }, 300); //300ms
         });
 
+    //balloonの表示/非表示切り替え
+	$('.read_more').hover(
+		function(){
+			var i = $('.read_more').index(this);
+			$('.balloon').eq(i).fadeIn();
+		},
+		function(){
+			var i = $('.read_more').index(this);
+			$('.balloon').eq(i).fadeOut();
+		}
+	);
+
     // worksスライダー
 
     $('.work-wrapper').slick({
@@ -80,9 +92,9 @@ $(function () {
         autoplaySpeed: 1000,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
         speed: 3000,//スライドのスピード。初期値は300。
         infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-        //pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
         //pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
-        //cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
+        cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
         slidesToShow: 3,//スライドを画面に3枚見せる
         slidesToScroll: 1,//1回のスライドで動かす要素数
         responsive: [{
