@@ -1,59 +1,65 @@
-.skills {
-    padding: 80px 0;
+#skills {
+    padding: 8rem 0;
     background: $color_white;
+    .heading {
+        @include heading();
+    }
 
     .wrapper {
-        margin: 50px auto 0;
-        max-width: 1000px;
+        margin: 5rem auto 0;
+        max-width: 100rem;
         display: flex;
         justify-content: space-between;
 
-        @include mq(lg) {
-           display: grid;
-           grid-template-columns: 1fr 1fr;
-           grid-template-rows: 1fr 1fr;
-        }
         @include mq() {
             width: 80%;
-            display: block;
+            flex-direction: column;
         }
 
         .skill_box {
             width: 25%;
             text-align: center;
-            @include mq(lg) {
+            border-radius: 5px;
+            transition: .5s;
+            &:hover {
+                box-shadow: 0 0 5px 5px rgba(56,54,52,.5);
+            }
+            @include mq() {
                 width: 100%;
-                margin: 40px 0;
+                margin-bottom: 3rem;
             }
 
             .size {
                 font-size: 10rem;
-                color: #f2003d;
+                color: #d03c56;
                 line-height: 15rem;
                 transition: .3s;
-                &:hover {
-                    font-size: 12rem;
-                }
             }
 
             .skill_title {
                 margin: 2rem;
                 margin-top: 0;
                 font-size: 2rem;
+                color: $color-black;
             }
 
             .desc {
-                margin: 0 20px;
+                margin: 0 2rem;
                 font-size: 1.4rem;
                 line-height: 1.8;
                 text-align: left;
+                padding-bottom: 1rem;
+                color: $color-black;
                 @include mq(lg) {
                     margin: 0 auto;
                     font-size: 1.3rem;
                     line-height: 2rem;
-                    width: 50%;
+                    width: 75%;
                 }
             }
         }
+    }
+    .read_more {
+        @include read_more();
     }
 }

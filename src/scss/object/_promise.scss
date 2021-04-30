@@ -1,12 +1,13 @@
-.promise {
+#promise {
     padding: 8rem 0;
     background: $color_black;
     color: $color_white;
-
+    .heading {
+        @include heading($color-white);
+    }
     p {
         font-size: 1.4rem;
         line-height: 1.8;
-        //color: $color_black;
     }
 }
 

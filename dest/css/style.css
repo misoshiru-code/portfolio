@@ -4,10 +4,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
 body {
-  overflow-X: hidden;
+    overflow-X: hidden;
+    @include mq() {
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
 }
-
+*/
 * {
   font-family: 'Alata', 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
@@ -32,31 +37,25 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.heading {
-  margin: 30px 0 15px;
-  font-size: 4rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 .clearfix::after {
   content: '';
   display: block;
   clear: both;
 }
 
-#top .logo a {
-  color: #fafafa;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+/*下から上にフェードイン*/
+.fadein {
+  opacity: 0;
+  -webkit-transform: translateY(3rem);
+          transform: translateY(3rem);
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-#top .logo a:hover {
-  opacity: 0.5;
-}
-
-#top .menu_trigger .top, #top .menu_trigger .middle, #top .menu_trigger .bottom {
-  background: #fafafa;
+.fadein.fadeinup {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .footer {
@@ -125,8 +124,8 @@ a:link, a:hover, a:visited, a:active {
   content: '';
   display: block;
   position: absolute;
-  top: 7rem;
-  left: -44px;
+  top: 5rem;
+  left: -4.4rem;
   width: 0px;
   height: 1px;
   background: #383634;
@@ -140,14 +139,18 @@ a:link, a:hover, a:visited, a:active {
 
 .nav_bg .nav_bg_inner .global_nav ul li a:hover::before {
   background: #fafafa;
-  width: 36px;
+  width: 3.6rem;
 }
 
 .nav_bg .nav_bg_inner .nav_aside {
   font-size: 2.5rem;
   color: #383634;
   padding-left: 12.5%;
-  padding-top: 75px;
+  padding-top: 7.5rem;
+}
+
+.nav_bg .nav_bg_inner .nav_aside h2 {
+  font-size: 3rem;
 }
 
 .header {
@@ -181,7 +184,7 @@ a:link, a:hover, a:visited, a:active {
 
 .header_inner .logo a {
   text-decoration: none;
-  color: #383634;
+  color: #fafafa;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
@@ -245,7 +248,7 @@ a:link, a:hover, a:visited, a:active {
   margin-bottom: 8px;
   display: block;
   height: 2px;
-  background: #383634;
+  background: #fafafa;
 }
 
 .menu_trigger .top:last-child, .menu_trigger .middle:last-child, .menu_trigger .bottom:last-child {
@@ -288,16 +291,55 @@ a:link, a:hover, a:visited, a:active {
   opacity: .8;
 }
 
-.about {
-  padding: 80px 30px;
+#about {
+  padding: 8rem 3rem;
   background: #fafafa;
   text-align: center;
 }
 
+#about .heading {
+  margin: 3rem 0 1.5rem;
+  font-size: 4rem;
+  color: #383634;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#about .read_more {
+  margin: 8rem auto 0;
+  display: block;
+  width: 10rem;
+  font-size: 1.6rem;
+  color: #d03c56;
+  text-align: center;
+}
+
+#about .read_more::after {
+  margin-left: 0.5rem;
+  content: '\f054';
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+#about .read_more:hover {
+  opacity: 0.9;
+}
+
+#about .read_more:hover:after {
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
+}
+
 .about_text {
-  margin: 30px 0;
+  margin: 3rem 0;
   font-size: 1.4rem;
   line-height: 2.5;
+  color: #383634;
 }
 
 .about_list {
@@ -311,7 +353,7 @@ a:link, a:hover, a:visited, a:active {
   width: 30%;
 }
 
-.twitter {
+.about_list .twitter {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -319,13 +361,13 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.twitter:hover {
+.about_list .twitter:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #1C95E0;
 }
 
-.facebook {
+.about_list .facebook {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -333,13 +375,13 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.facebook:hover {
+.about_list .facebook:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #3C5997;
 }
 
-.github {
+.about_list .github {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -347,18 +389,26 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.github:hover {
+.about_list .github:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #2B3236;
 }
 
-.contact {
-  padding: 80px 0 150px;
+#contact {
+  padding: 8rem 0 15rem;
   color: #fafafa;
 }
 
-.contact .section_bg {
+#contact .heading {
+  margin: 3rem 0 1.5rem;
+  font-size: 4rem;
+  color: #fafafa;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#contact .section_bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -367,7 +417,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: -2;
 }
 
-.contact .section_bg .section_bg_inner {
+#contact .section_bg .section_bg_inner {
   width: 100%;
   height: 100%;
   background: #383634 url("../img/contact-img.jpg");
@@ -380,7 +430,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: -10;
 }
 
-.contact .section_bg .section_bg_inner:before {
+#contact .section_bg .section_bg_inner:before {
   content: '';
   display: block;
   z-index: -1;
@@ -392,119 +442,73 @@ a:link, a:hover, a:visited, a:active {
   background: rgba(56, 54, 52, 0.8);
 }
 
-.contact .contact_form {
-  margin: 50px auto 0;
+#contact .contact_form {
+  margin: 5rem auto 0;
   width: 50%;
 }
 
-.contact .contact_form .input_name, .contact .contact_form .input_text {
-  margin-bottom: 10px;
-  padding: 15px;
+#contact .contact_form .input_name, #contact .contact_form .input_text {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
   display: block;
   width: 100%;
-  border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 0;
   background: rgba(255, 255, 255, 0.15);
   outline: none;
   color: #fafafa;
-  font-size: 15px;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
 
-.contact .contact_form .input_name::-webkit-input-placeholder, .contact .contact_form .input_text::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+#contact .contact_form .input_name::-webkit-input-placeholder, #contact .contact_form .input_text::-webkit-input-placeholder {
+  color: #fafafa;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .input_name::-moz-placeholder, .contact .contact_form .input_text::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+#contact .contact_form .input_name::-moz-placeholder, #contact .contact_form .input_text::-moz-placeholder {
+  color: #fafafa;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .input_name:-ms-input-placeholder, .contact .contact_form .input_text:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+#contact .contact_form .input_name:-ms-input-placeholder, #contact .contact_form .input_text:-ms-input-placeholder {
+  color: #fafafa;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .input_name::-ms-input-placeholder, .contact .contact_form .input_text::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+#contact .contact_form .input_name::-ms-input-placeholder, #contact .contact_form .input_text::-ms-input-placeholder {
+  color: #fafafa;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .input_name::placeholder, .contact .contact_form .input_text::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+#contact .contact_form .input_name::placeholder, #contact .contact_form .input_text::placeholder {
+  color: #fafafa;
   font-size: 1.4rem;
 }
 
-.contact .contact_form .input_text {
-  height: 150px;
+#contact .contact_form .input_text {
+  height: 15rem;
 }
 
-.contact .contact_form .input_btn {
-  margin: 40px auto 0;
-  padding: 15px;
+#contact .contact_form .input_btn {
+  margin: 4rem auto 0;
+  padding: 1.5rem;
   display: block;
-  width: 200px;
+  width: 20rem;
   background: transparent;
   border: solid 1px rgba(255, 255, 255, 0.4);
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
-  font-size: 14px;
   font-size: 1.4rem;
   outline: none;
 }
 
-.contact .contact_form .input_btn:hover {
+#contact .contact_form .input_btn:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.main .read_more {
-  margin: 80px auto 0;
-  display: block;
-  width: 100px;
-  font-size: 16px;
-  font-size: 1.6rem;
-  color: #d03c56;
-  text-align: center;
-}
-
-.main .read_more::after {
-  margin-left: 5px;
-  content: '\f054';
-  display: inline-block;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-}
-
-.main .read_more:hover {
-  opacity: 0.9;
-}
-
-.main .read_more:hover:after {
-  -webkit-transform: translateX(5px);
-          transform: translateX(5px);
-}
-
-.main .works .read_more {
-  color: #fafafa;
-}
-
-.main .promise .read_more {
-  color: #fafafa;
-}
-
-/*.progress {
+/*
+.progress {
     background-color:$color_black;
     color: $color_white;
     height: 100%;
@@ -535,13 +539,21 @@ a:link, a:hover, a:visited, a:active {
     border-top-color: $color_white;
 }
 */
-.promise {
+#promise {
   padding: 8rem 0;
   background: #383634;
   color: #fafafa;
 }
 
-.promise p {
+#promise .heading {
+  margin: 3rem 0 1.5rem;
+  font-size: 4rem;
+  color: #fafafa;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#promise p {
   font-size: 1.4rem;
   line-height: 1.8;
 }
@@ -620,14 +632,22 @@ a:link, a:hover, a:visited, a:active {
   padding: 2%;
 }
 
-.skills {
-  padding: 80px 0;
+#skills {
+  padding: 8rem 0;
   background: #fafafa;
 }
 
-.skills .wrapper {
-  margin: 50px auto 0;
-  max-width: 1000px;
+#skills .heading {
+  margin: 3rem 0 1.5rem;
+  font-size: 4rem;
+  color: #383634;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#skills .wrapper {
+  margin: 5rem auto 0;
+  max-width: 100rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -636,34 +656,71 @@ a:link, a:hover, a:visited, a:active {
           justify-content: space-between;
 }
 
-.skills .wrapper .skill_box {
+#skills .wrapper .skill_box {
   width: 25%;
   text-align: center;
+  border-radius: 5px;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
-.skills .wrapper .skill_box .size {
+#skills .wrapper .skill_box:hover {
+  -webkit-box-shadow: 0 0 5px 5px rgba(56, 54, 52, 0.5);
+          box-shadow: 0 0 5px 5px rgba(56, 54, 52, 0.5);
+}
+
+#skills .wrapper .skill_box .size {
   font-size: 10rem;
-  color: #f2003d;
+  color: #d03c56;
   line-height: 15rem;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.skills .wrapper .skill_box .size:hover {
-  font-size: 12rem;
-}
-
-.skills .wrapper .skill_box .skill_title {
+#skills .wrapper .skill_box .skill_title {
   margin: 2rem;
   margin-top: 0;
   font-size: 2rem;
+  color: #383634;
 }
 
-.skills .wrapper .skill_box .desc {
-  margin: 0 20px;
+#skills .wrapper .skill_box .desc {
+  margin: 0 2rem;
   font-size: 1.4rem;
   line-height: 1.8;
   text-align: left;
+  padding-bottom: 1rem;
+  color: #383634;
+}
+
+#skills .read_more {
+  margin: 8rem auto 0;
+  display: block;
+  width: 10rem;
+  font-size: 1.6rem;
+  color: #d03c56;
+  text-align: center;
+}
+
+#skills .read_more::after {
+  margin-left: 0.5rem;
+  content: '\f054';
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+#skills .read_more:hover {
+  opacity: 0.9;
+}
+
+#skills .read_more:hover:after {
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
 }
 
 .top_main {
@@ -678,7 +735,7 @@ a:link, a:hover, a:visited, a:active {
 .top_main .text {
   padding: 0 10rem;
   position: absolute;
-  bottom: 50px;
+  bottom: 5rem;
   z-index: 1;
 }
 
@@ -791,7 +848,7 @@ a:link, a:hover, a:visited, a:active {
   }
 }
 
-.works {
+#works {
   padding: 80px 0;
   color: #fafafa;
   background: #383634;
@@ -799,11 +856,19 @@ a:link, a:hover, a:visited, a:active {
   z-index: 0;
 }
 
-.works .work-wrapper {
+#works .heading {
+  margin: 3rem 0 1.5rem;
+  font-size: 4rem;
+  color: #fafafa;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#works .work-wrapper {
   margin: 6rem 2rem 0;
 }
 
-.works .work_box {
+#works .work_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -814,14 +879,14 @@ a:link, a:hover, a:visited, a:active {
   padding: 0 1rem;
 }
 
-.works .work_img {
+#works .work_img {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
 
-.works .work_img img {
+#works .work_img img {
   width: 100%;
   height: auto;
   -webkit-transition: all .5s ease 0.1s;
@@ -829,23 +894,53 @@ a:link, a:hover, a:visited, a:active {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.works .work_img img:hover {
+#works .work_img img:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
   opacity: .5;
 }
 
-.works .work_heading {
+#works .work_heading {
   color: #fafafa;
   font-size: 1.8rem;
   line-height: 1.8;
   margin-top: 1rem;
 }
 
-.works .work_desc {
+#works .work_desc {
   color: #fafafa;
   font-size: 1.4rem;
   line-height: 1.8;
+}
+
+#works .read_more {
+  margin: 8rem auto 0;
+  display: block;
+  width: 10rem;
+  font-size: 1.6rem;
+  color: #fafafa;
+  text-align: center;
+}
+
+#works .read_more::after {
+  margin-left: 0.5rem;
+  content: '\f054';
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+#works .read_more:hover {
+  opacity: 0.9;
+}
+
+#works .read_more:hover:after {
+  -webkit-transform: translateX(1rem);
+          transform: translateX(1rem);
 }
 
 @media screen and (min-width: 769px) and (max-width: 1000px) {
@@ -855,10 +950,6 @@ a:link, a:hover, a:visited, a:active {
 }
 
 @media screen and (max-width: 767px) {
-  body {
-    font-size: 1.3rem;
-    line-height: 1.7;
-  }
   .pc-only {
     display: none;
   }
@@ -875,7 +966,7 @@ a:link, a:hover, a:visited, a:active {
     display: block;
     position: absolute;
     top: 17%;
-    left: 40px;
+    left: 4rem;
   }
   .nav_bg .nav_bg_inner .global_nav ul {
     padding: 0;
@@ -887,7 +978,7 @@ a:link, a:hover, a:visited, a:active {
   .nav_bg .nav_bg_inner .nav_aside {
     font-size: 1.8rem;
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 2rem;
   }
   .header_inner {
     padding: 0 3rem;
@@ -903,32 +994,41 @@ a:link, a:hover, a:visited, a:active {
     top: 5.5%;
     right: 10%;
   }
+  .page-top {
+    display: none !important;
+  }
   .about_list {
     width: 80%;
   }
-  .contact {
-    padding: 80px 0;
+  #contact {
+    padding: 8rem 0;
   }
-  .skills .wrapper {
+  #skills .wrapper {
     width: 80%;
-    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #skills .wrapper .skill_box {
+    width: 100%;
+    margin-bottom: 3rem;
   }
   .top_main .text {
     padding: 0 3rem;
-    bottom: 50px;
-    z-index: 1;
   }
   .top_main .text .desc {
     font-size: 1.9rem;
   }
+  #works .work_heading {
+    font-size: 1.4rem;
+  }
+  #works .work_desc {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-  .heading {
-    padding-bottom: 15px;
-    margin: 20px 0 15px;
-    font-size: 2.5rem;
-  }
   .nav_bg {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -943,27 +1043,38 @@ a:link, a:hover, a:visited, a:active {
   .nav_bg .nav_bg_inner .global_nav {
     padding-right: 0;
   }
+  #about .heading {
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    font-size: 2.5rem;
+  }
   .about_text {
     font-size: 1.3rem;
     line-height: 1.8;
   }
-  .contact .contact_form {
+  #contact .heading {
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    font-size: 2.5rem;
+  }
+  #contact .contact_form {
     width: 80%;
   }
-  .skills .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+  #promise .heading {
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    font-size: 2.5rem;
   }
-  .skills .wrapper .skill_box {
-    width: 100%;
-    margin: 40px 0;
+  #skills .heading {
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    font-size: 2.5rem;
   }
-  .skills .wrapper .skill_box .desc {
+  #skills .wrapper .skill_box .desc {
     margin: 0 auto;
     font-size: 1.3rem;
     line-height: 2rem;
-    width: 50%;
+    width: 75%;
   }
   .top_main .text .sub_title {
     margin-bottom: 1.0rem;
@@ -981,5 +1092,10 @@ a:link, a:hover, a:visited, a:active {
   }
   .scroll-guide {
     right: 2rem;
+  }
+  #works .heading {
+    padding-bottom: 1.5rem;
+    margin: 2rem 0 1.5rem;
+    font-size: 2.5rem;
   }
 }

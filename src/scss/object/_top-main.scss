@@ -8,18 +8,15 @@
     .text {
         padding: 0 10rem;
         position: absolute;
-        bottom: 50px;
+        bottom: 5rem;
         z-index: 1;
         @include mq() {
             padding: 0 3rem;
-            bottom: 50px;
-            z-index: 1;
         }
         .sub_title {
             margin-bottom: 0.5rem;
             font-size: 4rem;
             color: $color_white;
-
             @include mq(lg) {
                 margin-bottom: 1.0rem;
                 font-size: 3rem;
@@ -29,7 +26,6 @@
             margin-bottom: 1rem;
             font-size: 2.8rem;
             color: $color_white;
-
             @include mq(lg) {
                 margin-bottom: 1.8rem;
                 font-size: 2.3rem;
@@ -38,7 +34,6 @@
         .desc {
             font-size: 1.8rem;
             color: $color_white;
-
             @include mq(lg) {
                 font-size: 1.4rem;
             }

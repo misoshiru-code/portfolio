@@ -11,7 +11,6 @@
     background: linear-gradient(to bottom, $color-black, transparent);
     z-index: 1;
 }
-
 .header_inner {
     height: 10rem;
     padding: 0 10rem;
@@ -21,24 +20,20 @@
     @include mq() {
         padding: 0 3rem;
     }
-
     .logo {
         font-size: 3rem;
         @include mq() {
             font-size: 2rem;
         }
-
         a {
             text-decoration: none;
-            color: $color_black;
+            color: $color_white;
             transition: opacity 0.5s;
-
             &:hover {
                 opacity: 0.5;
             }
         }
     }
-
     .nav {
         ul {
             display: flex;
@@ -73,7 +68,6 @@
         }
     }
 }
-
 .menu_trigger {
     display: none;
     position: fixed;
@@ -81,32 +75,26 @@
     right: 12%;
     z-index: 101;
     cursor: pointer;
-
     @include mq() {
         display: block;
         top: 5.5%;
         right: 10%;
     }
-
     .top, .middle, .bottom {
         margin-bottom: 8px;
         display: block;
         height: 2px;
-        background: $color_black;
-
+        background: $color_white;
         &:last-child {
             margin: 0;
         }
     }
-
     .top {
         width: 50px;
     }
-
     .middle {
         width: 40px;
     }
-
     .bottom {
         width: 30px;
     }

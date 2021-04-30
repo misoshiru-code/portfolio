@@ -1,5 +1,6 @@
 //JavaScript
 
+//inner-heightの自動取得（主にスマホ用）
 const setFillHeight = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -7,11 +8,10 @@ const setFillHeight = () => {
 
 // 画面のサイズ変動があった時に高さを再計算する
 window.addEventListener('resize', setFillHeight);
-
 // 初期化
 setFillHeight();
 
-
+//jQuery
 
 // メニューの開閉
 $(function () {
@@ -29,6 +29,19 @@ $(function () {
                 left: '100%'
             }, duration, 'easeOutExpo');
         };
+    });
+
+    //指定要素から150pxスクロールしたら、下から上にフェードイン
+
+    $(window).scroll(function () {
+        $('.fadein').each(function () {
+            var elemPos = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if (scroll > elemPos - windowHeight + 150) {
+                $(this).addClass('fadeinup');
+            }
+        });
     });
 
     //ページトップへのスクロール
@@ -64,16 +77,21 @@ $(function () {
         dots: false,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 0,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
-        speed: 6900,//スライドのスピード。初期値は300。
+        autoplaySpeed: 1000,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
+        speed: 3000,//スライドのスピード。初期値は300。
         infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
-        pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
-        cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
-        slidesToShow: 3,//スライドを画面に4枚見せる
+        //pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+        //pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
+        //cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
+        slidesToShow: 3,//スライドを画面に3枚見せる
         slidesToScroll: 1,//1回のスライドで動かす要素数
+        responsive: [{
+            breakpoint: 768,//SP画面の時、1枚表示
+            settings: {
+                slidesToShow: 1,
+            }
+        }]
     });
-
 });
 
 //アコーディオンをクリックした時の動作
