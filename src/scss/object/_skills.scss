@@ -1,11 +1,12 @@
-#skills {
+.skills {
     padding: 8rem 0;
     background: $color_white;
-    .heading {
+
+    &-heading {
         @include heading();
     }
 
-    .wrapper {
+    &-wrapper {
         margin: 5rem auto 0;
         max-width: 100rem;
         display: flex;
@@ -15,70 +16,74 @@
             width: 80%;
             flex-direction: column;
         }
+    }
 
-        .skill_box {
-            width: 25%;
-            text-align: center;
-            border-radius: 5px;
-            transition: .5s;
-            &:hover {
-                box-shadow: 0 0 5px 5px rgba(56,54,52,.3);
-            }
-            @include mq() {
-                width: 100%;
-                margin-bottom: 3rem;
-            }
-
-            .size {
-                font-size: 10rem;
-                color: #d03c56;
-                line-height: 15rem;
-                transition: .3s;
-            }
-
-            .skill_title {
-                margin: 2rem;
-                margin-top: 0;
-                font-size: 2rem;
-                color: $color-black;
-            }
-
-            .desc {
-                margin: 0 2rem;
-                font-size: 1.4rem;
-                line-height: 1.8;
-                text-align: left;
-                padding-bottom: 1rem;
-                color: $color-black;
-                @include mq(lg) {
-                    margin: 0 auto;
-                    font-size: 1.3rem;
-                    line-height: 2rem;
-                    width: 75%;
-                }
-            }
+    &-box {
+        width: 25%;
+        text-align: center;
+        border-radius: 5px;
+        transition: .5s;
+        &:hover {
+            box-shadow: 0 0 5px 5px rgba(56,54,52,.3);
+        }
+        @include mq() {
+            width: 100%;
+            margin-bottom: 3rem;
         }
     }
-    .skill_textbox {
+
+    .size {
+        font-size: 10rem;
+        color: #d03c56;
+        line-height: 15rem;
+        transition: .3s;
+    }
+
+    &-title {
+        margin: 2rem;
+        margin-top: 0;
+        font-size: 2rem;
+        color: $color-black;
+    }
+
+    &-desc {
+        margin: 0 2rem;
+        font-size: 1.4rem;
+        line-height: 1.8;
+        text-align: left;
+        padding-bottom: 1rem;
+        color: $color-black;
+        @include mq(lg) {
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 2rem;
+            width: 75%;
+        }
+    }
+
+    &-textBox {
         width: 100%;
         max-width: 100rem;
         margin: 0 auto;
         padding: 0 10rem;
         text-align: center;
-        .skill_heading {
-            font-size: 2rem;
-            color: $color-black;
-            margin: 5rem 0 0;
-        }
-        .skill_text {
-            font-size: 1.4rem;
-            color: $color-black;
-            margin: 2rem 0 0;
-        }
     }
-    .linkbox {
+
+    &-textHeading {
+        font-size: 2rem;
+        color: $color-black;
+        margin: 5rem 0 0;
+    }
+
+    &-text {
+        font-size: 1.4rem;
+        color: $color-black;
+        margin: 2rem 0 0;
+    }
+
+    .linkBox {
         position: relative;
-        .read_more {
+        .readMore {
         @include read_more();
         }
         .balloon {
