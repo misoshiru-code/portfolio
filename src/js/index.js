@@ -17,15 +17,15 @@ setFillHeight();
 $(function () {
     var duration = 1000;
 
-    $('.openbtn').on('click', function () {
-        $('.bnav').toggleClass('open');
+    $('.openBtn').on('click', function () {
+        $('.bgNav').toggleClass('open');
 
-        if ($('.bnav').hasClass('open')) {
-            $('.bnav').stop(true).animate({
+        if ($('.bgNav').hasClass('open')) {
+            $('.bgNav').stop(true).animate({
                 left: '0'
             }, duration, 'easeOutExpo');
         } else {
-            $('.bnav').stop(true).animate({
+            $('.bgNav').stop(true).animate({
                 left: '100%'
             }, duration, 'easeOutExpo');
         };

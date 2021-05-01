@@ -2,7 +2,7 @@
 // グローバルナビ
 //=====================================================
 
-.bnav {
+.bgNav {
     background: rgba(0, 0, 0, 0.95);
     position: fixed;
     top: 0;
@@ -48,7 +48,7 @@
     }
 }
 
-.gnav {
+.globalNav {
     padding-right: 12.5%;
     color: $color_white;
     @include mq(lg) {

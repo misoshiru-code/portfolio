@@ -68,7 +68,7 @@ a:link, a:hover, a:visited, a:active {
   color: #fafafa;
 }
 
-.bnav {
+.bgNav {
   background: rgba(0, 0, 0, 0.95);
   position: fixed;
   top: 0;
@@ -78,7 +78,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 100;
 }
 
-.bnav-inner {
+.bgNav-inner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -91,39 +91,39 @@ a:link, a:hover, a:visited, a:active {
   height: 100%;
 }
 
-.bnav-aside {
+.bgNav-aside {
   font-size: 2.5rem;
   color: #383634;
   padding-left: 12.5%;
   padding-top: 7.5rem;
 }
 
-.bnav-aside h2 {
+.bgNav-aside h2 {
   font-size: 3rem;
 }
 
-.gnav {
+.globalNav {
   padding-right: 12.5%;
   color: #fafafa;
 }
 
-.gnav-list {
+.globalNav-list {
   list-style-type: none;
 }
 
-.gnav-item {
+.globalNav-item {
   -webkit-transition: -webkit-transform 0.7s;
   transition: -webkit-transform 0.7s;
   transition: transform 0.7s;
   transition: transform 0.7s, -webkit-transform 0.7s;
 }
 
-.gnav-item:hover {
+.globalNav-item:hover {
   -webkit-transform: translateX(36px);
           transform: translateX(36px);
 }
 
-.gnav-item a {
+.globalNav-item a {
   font-size: 5rem;
   line-height: 1.75;
   color: #383634;
@@ -131,7 +131,7 @@ a:link, a:hover, a:visited, a:active {
   transition: color 0.5s;
 }
 
-.gnav-item a::before {
+.globalNav-item a::before {
   content: '';
   display: block;
   position: absolute;
@@ -144,11 +144,11 @@ a:link, a:hover, a:visited, a:active {
   transition: width 0.8s;
 }
 
-.gnav-item a:hover {
+.globalNav-item a:hover {
   color: #fafafa;
 }
 
-.gnav-item a:hover::before {
+.globalNav-item a:hover::before {
   background: #fafafa;
   width: 3.6rem;
 }
@@ -194,7 +194,7 @@ a:link, a:hover, a:visited, a:active {
   opacity: 0.5;
 }
 
-.nav-list {
+.headerNav-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,7 +204,7 @@ a:link, a:hover, a:visited, a:active {
   margin: 0;
 }
 
-.nav-list a {
+.headerNav-list a {
   font-size: 2rem;
   color: #fafafa;
   margin-left: 3rem;
@@ -213,7 +213,7 @@ a:link, a:hover, a:visited, a:active {
   text-decoration: none;
 }
 
-.nav-list a::after {
+.headerNav-list a::after {
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -231,37 +231,37 @@ a:link, a:hover, a:visited, a:active {
   transition: transform .3s, -webkit-transform .3s;
 }
 
-.nav-list a:hover::after {
+.headerNav-list a:hover::after {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
 }
 
-.openbtn {
+.openBtn {
   display: none;
   cursor: pointer;
   z-index: 110;
 }
 
-.openbtn .top, .openbtn .middle, .openbtn .bottom {
+.openBtn .top, .openBtn .middle, .openBtn .bottom {
   margin-bottom: .8rem;
   display: block;
   height: 2px;
   background: #fafafa;
 }
 
-.openbtn .top:last-child, .openbtn .middle:last-child, .openbtn .bottom:last-child {
+.openBtn .top:last-child, .openBtn .middle:last-child, .openBtn .bottom:last-child {
   margin: 0;
 }
 
-.openbtn .top {
+.openBtn .top {
   width: 50px;
 }
 
-.openbtn .middle {
+.openBtn .middle {
   width: 40px;
 }
 
-.openbtn .bottom {
+.openBtn .bottom {
   width: 30px;
 }
 
@@ -803,7 +803,7 @@ a:link, a:hover, a:visited, a:active {
   position: absolute;
 }
 
-.top_main {
+.topMain {
   position: relative;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
@@ -812,31 +812,31 @@ a:link, a:hover, a:visited, a:active {
   z-index: 0;
 }
 
-.top_main .text {
+.topMain-text {
   padding: 0 10rem;
   position: absolute;
   bottom: 5rem;
   z-index: 1;
 }
 
-.top_main .text .sub_title {
+.topMain-subTitle {
   margin-bottom: 0.5rem;
   font-size: 4rem;
   color: #fafafa;
 }
 
-.top_main .text .name {
+.topMain-name {
   margin-bottom: 1rem;
   font-size: 2.8rem;
   color: #fafafa;
 }
 
-.top_main .text .desc {
+.topMain-desc {
   font-size: 1.8rem;
   color: #fafafa;
 }
 
-.top_main .video {
+.video {
   position: absolute;
   top: 0;
   left: 0;
@@ -848,7 +848,7 @@ a:link, a:hover, a:visited, a:active {
      object-fit: cover;
 }
 
-.scroll-text {
+.scrollText {
   position: absolute;
   bottom: 7rem;
   right: 8.1rem;
@@ -859,7 +859,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 1;
 }
 
-.scroll-guide {
+.scrollGuide {
   position: absolute;
   right: 10.5rem;
   bottom: 2rem;
@@ -867,7 +867,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 1;
 }
 
-.scroll-guide i {
+.scrollGuide i {
   display: block;
   width: 2px;
   height: 50px;
@@ -877,7 +877,7 @@ a:link, a:hover, a:visited, a:active {
   position: relative;
 }
 
-.scroll-guide i:before {
+.scrollGuide i:before {
   display: block;
   content: "";
   width: 100%;
@@ -886,11 +886,11 @@ a:link, a:hover, a:visited, a:active {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: scroll_guide_animation 2s infinite normal;
-          animation: scroll_guide_animation 2s infinite normal;
+  -webkit-animation: scrollGuide-animation 2s infinite normal;
+          animation: scrollGuide-animation 2s infinite normal;
 }
 
-@-webkit-keyframes scroll_guide_animation {
+@-webkit-keyframes scrollGuide-animation {
   0% {
     -webkit-transform: translate3d(0, -100%, 0);
             transform: translate3d(0, -100%, 0);
@@ -909,7 +909,7 @@ a:link, a:hover, a:visited, a:active {
   }
 }
 
-@keyframes scroll_guide_animation {
+@keyframes scrollGuide-animation {
   0% {
     -webkit-transform: translate3d(0, -100%, 0);
             transform: translate3d(0, -100%, 0);
@@ -1090,10 +1090,10 @@ a:link, a:hover, a:visited, a:active {
   .sp-only {
     display: block;
   }
-  .bnav {
+  .bgNav {
     display: block;
   }
-  .bnav-inner {
+  .bgNav-inner {
     -webkit-box-align: normal;
         -ms-flex-align: normal;
             align-items: normal;
@@ -1102,25 +1102,25 @@ a:link, a:hover, a:visited, a:active {
     top: 17%;
     left: 4rem;
   }
-  .bnav-aside {
+  .bgNav-aside {
     font-size: 1.8rem;
     padding-left: 0;
     padding-top: 2rem;
   }
-  .gnav-list {
+  .globalNav-list {
     padding: 0;
   }
-  .gnav-item a {
+  .globalNav-item a {
     font-size: 4.3rem;
     line-height: 1.5;
   }
   .header-logo {
     font-size: 2rem;
   }
-  .nav {
+  .headerNav {
     display: none;
   }
-  .openbtn {
+  .openBtn {
     display: block;
   }
   .page-top {
@@ -1153,16 +1153,16 @@ a:link, a:hover, a:visited, a:active {
     width: 100%;
     margin-bottom: 3rem;
   }
-  .top_main .text {
+  .topMain-text {
     padding: 0 3rem;
   }
-  .top_main .text .desc {
+  .topMain-desc {
     font-size: 1.9rem;
   }
-  .scroll-text {
+  .scrollText {
     right: -0.4rem;
   }
-  .scroll-guide {
+  .scrollGuide {
     right: 2rem;
   }
   #works .work_heading {
@@ -1174,7 +1174,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 @media screen and (max-width: 1024px) {
-  .bnav {
+  .bgNav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1185,7 +1185,7 @@ a:link, a:hover, a:visited, a:active {
         -ms-flex-align: center;
             align-items: center;
   }
-  .gnav {
+  .globalNav {
     padding-right: 0;
   }
   .header-inner {
@@ -1224,15 +1224,15 @@ a:link, a:hover, a:visited, a:active {
     line-height: 2rem;
     width: 75%;
   }
-  .top_main .text .sub_title {
+  .topMain-subTitle {
     margin-bottom: 1.0rem;
     font-size: 3rem;
   }
-  .top_main .text .name {
+  .topMain-name {
     margin-bottom: 1.8rem;
     font-size: 2.3rem;
   }
-  .top_main .text .desc {
+  .topMain-desc {
     font-size: 1.4rem;
   }
   #works .heading {
