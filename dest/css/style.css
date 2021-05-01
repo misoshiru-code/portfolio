@@ -265,7 +265,7 @@ a:link, a:hover, a:visited, a:active {
   width: 30px;
 }
 
-.page-top {
+.pageTop {
   position: fixed;
   right: 3rem;
   bottom: 3rem;
@@ -277,7 +277,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 10;
 }
 
-.page-top .size {
+.pageTop-size {
   font-size: 5rem;
   color: #383634;
   line-height: 5rem;
@@ -285,17 +285,17 @@ a:link, a:hover, a:visited, a:active {
   transition: .3s;
 }
 
-.page-top .size:hover {
+.pageTop-size:hover {
   opacity: .8;
 }
 
-#about {
+.about {
   padding: 8rem 3rem;
   background: #fafafa;
   text-align: center;
 }
 
-#about .heading {
+.about-heading {
   margin: 3rem 0 1.5rem;
   font-size: 4rem;
   color: #383634;
@@ -303,11 +303,71 @@ a:link, a:hover, a:visited, a:active {
   text-transform: uppercase;
 }
 
-#about .linkbox {
+.about-text {
+  margin: 3rem 0;
+  font-size: 1.4rem;
+  line-height: 2.5;
+  color: #383634;
+}
+
+.about-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 30%;
+}
+
+.twitter {
+  font-size: 5rem;
+  line-height: 10rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+  color: #383634;
+}
+
+.twitter:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+  color: #1C95E0;
+}
+
+.facebook {
+  font-size: 5rem;
+  line-height: 10rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+  color: #383634;
+}
+
+.facebook:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+  color: #3C5997;
+}
+
+.github {
+  font-size: 5rem;
+  line-height: 10rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+  color: #383634;
+}
+
+.github:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+  color: #2B3236;
+}
+
+.linkBox {
   position: relative;
 }
 
-#about .linkbox .read_more {
+.readMore {
   margin: 8rem auto 0;
   display: block;
   width: 10rem;
@@ -317,7 +377,7 @@ a:link, a:hover, a:visited, a:active {
   cursor: default;
 }
 
-#about .linkbox .read_more::after {
+.readMore::after {
   margin-left: 0.5rem;
   content: '\f054';
   display: inline-block;
@@ -329,16 +389,16 @@ a:link, a:hover, a:visited, a:active {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-#about .linkbox .read_more:hover {
+.readMore:hover {
   opacity: 0.9;
 }
 
-#about .linkbox .read_more:hover:after {
+.readMore:hover:after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
 
-#about .linkbox .balloon {
+.balloon {
   color: #fafafa;
   font-size: 1.4rem;
   position: absolute;
@@ -354,7 +414,7 @@ a:link, a:hover, a:visited, a:active {
   display: none;
 }
 
-#about .linkbox .balloon::after {
+.balloon::after {
   border-bottom: 2rem solid rgba(56, 54, 52, 0.7);
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
@@ -362,66 +422,6 @@ a:link, a:hover, a:visited, a:active {
   left: 40%;
   content: "";
   position: absolute;
-}
-
-.about_text {
-  margin: 3rem 0;
-  font-size: 1.4rem;
-  line-height: 2.5;
-  color: #383634;
-}
-
-.about_list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0 auto;
-  width: 30%;
-}
-
-.about_list .twitter {
-  font-size: 5rem;
-  line-height: 10rem;
-  -webkit-transition: .5s;
-  transition: .5s;
-  color: #383634;
-}
-
-.about_list .twitter:hover {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-  color: #1C95E0;
-}
-
-.about_list .facebook {
-  font-size: 5rem;
-  line-height: 10rem;
-  -webkit-transition: .5s;
-  transition: .5s;
-  color: #383634;
-}
-
-.about_list .facebook:hover {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-  color: #3C5997;
-}
-
-.about_list .github {
-  font-size: 5rem;
-  line-height: 10rem;
-  -webkit-transition: .5s;
-  transition: .5s;
-  color: #383634;
-}
-
-.about_list .github:hover {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-  color: #2B3236;
 }
 
 #contact {
@@ -1123,10 +1123,10 @@ a:link, a:hover, a:visited, a:active {
   .openBtn {
     display: block;
   }
-  .page-top {
+  .pageTop {
     display: none !important;
   }
-  .about_list {
+  .about-list {
     width: 80%;
   }
   #contact {
@@ -1191,12 +1191,12 @@ a:link, a:hover, a:visited, a:active {
   .header-inner {
     padding: 0 3rem;
   }
-  #about .heading {
+  .about-heading {
     padding-bottom: 1.5rem;
     margin: 2rem 0 1.5rem;
     font-size: 2.5rem;
   }
-  .about_text {
+  .about-text {
     font-size: 1.3rem;
     line-height: 1.8;
   }

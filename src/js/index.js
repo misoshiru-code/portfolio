@@ -45,21 +45,21 @@ $(function () {
     });
 
     //ページトップへのスクロール
-    $('.page-top').click(function () {
+    $('.pageTop').click(function () {
         //class名.page-topがクリックされたら、以下の処理を実行
         $("html,body").animate({ scrollTop: 0 }, "300"); //300ms
     });
     //ページトップの出現
-    $('.page-top').hide();
+    $('.pageTop').hide();
     $(window).scroll(function () {
         if ($(window).scrollTop() > 600) { //600px
-            $('.page-top').fadeIn(600); //600ms
+            $('.pageTop').fadeIn(600); //600ms
         } else {
-            $('.page-top').fadeOut(600); //600ms
+            $('.pageTop').fadeOut(600); //600ms
         }
     });
     //ホバーイベント
-    $(".page-top").hover(
+    $(".pageTop").hover(
         function () {
             $(this).animate({
                 opacity: "0.7"
@@ -72,13 +72,13 @@ $(function () {
         });
 
     //balloonの表示/非表示切り替え
-	$('.read_more').hover(
+	$('.readMore').hover(
 		function(){
-			var i = $('.read_more').index(this);
+			var i = $('.readMore').index(this);
 			$('.balloon').eq(i).fadeIn();
 		},
 		function(){
-			var i = $('.read_more').index(this);
+			var i = $('.readMore').index(this);
 			$('.balloon').eq(i).fadeOut();
 		}
 	);

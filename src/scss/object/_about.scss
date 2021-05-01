@@ -1,4 +1,4 @@
-.page-top {
+.pageTop {
 	position: fixed;
 	right: 3rem;
 	bottom: 3rem;
@@ -11,7 +11,7 @@
     @include mq() {
         display: none!important;
     }
-    .size {
+    &-size {
         font-size: 5rem;
         color: $color_black;
         line-height: 5rem;
@@ -21,70 +21,77 @@
         }
     }
 }
-#about {
+
+.about {
     padding: 8rem 3rem;
     background: $color_white;
     text-align: center;
-    .heading {
+
+    &-heading {
         @include heading();
     }
-    .linkbox {
-        position: relative;
-        .read_more {
-        @include read_more();
-        }
-        .balloon {
-        @include balloon();
+
+    &-text {
+        margin: 3rem 0;
+        font-size: 1.4rem;
+        line-height: 2.5;
+        color: $color-black;
+        @include mq(lg) {
+            font-size: 1.3rem;
+            line-height: 1.8;
         }
     }
-    
+
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 30%;
+        @include mq() {
+            width: 80%;
+        }
+    }
 }
-.about_text {
-    margin: 3rem 0;
-    font-size: 1.4rem;
-    line-height: 2.5;
+
+.twitter {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .5s;
+    color:$color-black;
+    &:hover {
+        transform:scale(1.2,1.2);
+        color: #1C95E0;
+    }
+}
+.facebook {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .5s;
     color: $color-black;
-    @include mq(lg) {
-        font-size: 1.3rem;
-        line-height: 1.8;
+    &:hover {
+        transform:scale(1.2,1.2);
+        color: #3C5997;
     }
 }
-.about_list {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 30%;
-    @include mq() {
-        width: 80%;
+.github {
+    font-size: 5rem;
+    line-height: 10rem;
+    transition: .5s;
+    color: $color-black;
+    &:hover {
+        transform:scale(1.2,1.2);
+        color: #2B3236;
     }
-    .twitter {
-        font-size: 5rem;
-        line-height: 10rem;
-        transition: .5s;
-        color:$color-black;
-        &:hover {
-            transform:scale(1.2,1.2);
-            color: #1C95E0;
-        }
-    }
-    .facebook {
-        font-size: 5rem;
-        line-height: 10rem;
-        transition: .5s;
-        color: $color-black;
-        &:hover {
-            transform:scale(1.2,1.2);
-            color: #3C5997;
-        }
-    }
-    .github {
-        font-size: 5rem;
-        line-height: 10rem;
-        transition: .5s;
-        color: $color-black;
-        &:hover {
-            transform:scale(1.2,1.2);
-            color: #2B3236;
-        }
-    }
+}
+
+.linkBox {
+    position: relative;
+}
+
+.readMore {
+    @include read_more();
+}
+
+.balloon {
+    @include balloon();
 }
