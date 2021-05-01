@@ -4,15 +4,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/*
-body {
-    overflow-X: hidden;
-    @include mq() {
-        font-size: 1.3rem;
-        line-height: 1.7;
-    }
-}
-*/
 * {
   font-family: 'Alata', 'メイリオ', Meiryo,'ヒラギノ角ゴシック','Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
@@ -44,7 +35,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 /*下から上にフェードイン*/
-.fadein {
+.fadeIn {
   opacity: 0;
   -webkit-transform: translateY(3rem);
           transform: translateY(3rem);
@@ -52,7 +43,7 @@ a:link, a:hover, a:visited, a:active {
   transition: all 1s;
 }
 
-.fadein.fadeinup {
+.fadeIn.fadeUp {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
@@ -99,7 +90,7 @@ a:link, a:hover, a:visited, a:active {
   padding-top: 7.5rem;
 }
 
-.bgNav-aside h2 {
+.bgNav-heading {
   font-size: 3rem;
 }
 
@@ -394,7 +385,7 @@ a:link, a:hover, a:visited, a:active {
   opacity: 0.9;
 }
 
-.about .linkBox .readMore:hover:after {
+.about .linkBox .readMore:hover::after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
@@ -537,38 +528,68 @@ a:link, a:hover, a:visited, a:active {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/*
-.progress {
-    background-color:$color_black;
-    color: $color_white;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100000;
-
-    .progress-bar {
-        border-top: 1rem solid #a0a0a0;
-        position: absolute;
-        top: 50%;
-        width: 0%;
-    }
-
-    .progress-text {
-        font-size: 1.2rem;
-        margin-top: 10px;
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        width: 100%;
-    }
+.loading {
+  background: #383634;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
 }
 
-.progress.progress-complete .progress-bar {
-    border-top-color: $color_white;
+.loading-circle, .loading-circle::after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
 }
-*/
+
+.loading-circle {
+  margin: 6rem auto;
+  font-size: 1rem;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(250, 250, 250, 0.2);
+  border-right: 1.1em solid rgba(250, 250, 250, 0.2);
+  border-bottom: 1.1em solid rgba(250, 250, 250, 0.2);
+  border-left: 1.1em solid #fafafa;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+          animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .promise {
   padding: 8rem 0;
   background: #383634;
@@ -776,7 +797,7 @@ a:link, a:hover, a:visited, a:active {
   opacity: 0.9;
 }
 
-.skills .linkBox .readMore:hover:after {
+.skills .linkBox .readMore:hover::after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
@@ -812,7 +833,7 @@ a:link, a:hover, a:visited, a:active {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
-  background: #383634;
+  background: #383634 url("../img/posterImage.jpg") no-repeat top center/cover;
   z-index: 0;
 }
 
@@ -846,7 +867,6 @@ a:link, a:hover, a:visited, a:active {
   left: 0;
   height: 100%;
   width: auto;
-  opacity: 0.7;
   z-index: 0;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1050,7 +1070,7 @@ a:link, a:hover, a:visited, a:active {
   opacity: 0.9;
 }
 
-.works .linkBox .readMore:hover:after {
+.works .linkBox .readMore:hover::after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
@@ -1162,6 +1182,9 @@ a:link, a:hover, a:visited, a:active {
   }
   .topMain-desc {
     font-size: 1.9rem;
+  }
+  .video {
+    display: none;
   }
   .scrollText {
     right: -0.4rem;

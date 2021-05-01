@@ -12,9 +12,27 @@ window.addEventListener('resize', setFillHeight);
 setFillHeight();
 
 //jQuery
+$(function(){
 
-// メニューの開閉
-$(function () {
+    //ローディング処理
+    //読み込みが完了したら実行
+    $(window).on('load', function () {
+    // ローディングが10秒以内で終わる場合、読み込み完了後ローディング非表示
+        endLoading();
+    });
+
+    //10秒経過した段階で、上記の処理を上書き、強制終了
+    //setTimeout('endLoading()', 10000);
+
+    //ローディング非表示処理
+    function endLoading() {
+        // 0.8秒かけてロゴを非表示にし、その後1秒かけて背景を非表示にする
+        $('.loading-circle').fadeOut(800, function () {
+            $('.loading').fadeOut(1000);
+        });
+    }
+
+    // メニューの開閉
     var duration = 1000;
 
     $('.openBtn').on('click', function () {
@@ -34,12 +52,12 @@ $(function () {
     //指定要素から150pxスクロールしたら、下から上にフェードイン
 
     $(window).scroll(function () {
-        $('.fadein').each(function () {
+        $('.fadeIn').each(function () {
             var elemPos = $(this).offset().top;
             var scroll = $(window).scrollTop();
             var windowHeight = $(window).height();
             if (scroll > elemPos - windowHeight + 150) {
-                $(this).addClass('fadeinup');
+                $(this).addClass('fadeUp');
             }
         });
     });
@@ -72,16 +90,16 @@ $(function () {
         });
 
     //balloonの表示/非表示切り替え
-	$('.readMore').hover(
-		function(){
-			var i = $('.readMore').index(this);
-			$('.balloon').eq(i).fadeIn();
-		},
-		function(){
-			var i = $('.readMore').index(this);
-			$('.balloon').eq(i).fadeOut();
-		}
-	);
+    $('.readMore').hover(
+        function () {
+            var i = $('.readMore').index(this);
+            $('.balloon').eq(i).fadeIn();
+        },
+        function () {
+            var i = $('.readMore').index(this);
+            $('.balloon').eq(i).fadeOut();
+        }
+    );
 
     // worksスライダー
 
@@ -102,7 +120,7 @@ $(function () {
             settings: {
                 slidesToShow: 2,
             }
-        },{
+        }, {
             breakpoint: 768,//SP画面の時、1枚表示
             settings: {
                 slidesToShow: 1,
@@ -122,55 +140,4 @@ $(function () {
         }
     });
 
-// プログレス表示
-
-    imagesProgress();
-
-    function imagesProgress() {
-
-        var $container = $('#progress'),
-            $progressBar = $container.find('.progress-bar'),
-            $progressText = $container.find('.progress-text'),
-
-            imgLoad = imagesLoaded('body'),
-            imgTotal = imgLoad.images.length,
-
-            imgLoaded = 0,
-            current = 0,
-
-            progressTimer = setInterval(updateProgress, 1000 / 60);
-
-        imgLoad.on('progress', function () {
-            imgLoaded++;
-        });
-
-        function updateProgress() {
-
-            var target = (imgLoaded / imgTotal) * 100;
-
-            current += (target - current) * 0.1;
-
-            $progressBar.css({ width: current + '%' });
-            $progressText.text(Math.floor(current) + '%');
-
-            if (current >= 100) {
-                clearInterval(progressTimer);
-                // $container.addClass('progress-complete');
-                // $progressBar.add($progressText)
-                //     .delay(500)
-                //     .animate({ opacity: 0 }, 250, function () {
-                //         $container.animate({ top: '-100%' }, 1000, 'easeInOutQuint');
-                //     });
-                $container
-                    .delay(500)
-                    .animate({ opacity: 0 }, 1000, function () {
-                        $container.css({ top: '-100%' });
-                    });
-            }
-
-            if (current > 99.9) {
-                current = 100;
-            }
-        }
-    }
 });

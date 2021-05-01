@@ -11,11 +11,6 @@
     height: 100%;
     z-index: 100;
     display: none;
-    //@include mq(lg) {
-    //    display: flex;
-    //    justify-content: center;
-    //    align-items: center;
-    //}
     @include mq(md) {
         display: block;
     }
@@ -33,19 +28,21 @@
             left: 4rem;
         }
     }
+
     &-aside {
         font-size: 2.5rem;
         color: $color_black;
         padding-left: 12.5%;
         padding-top: 7.5rem;
-        h2 {
-            font-size: 3rem;
-        }
         @include mq() {
             font-size: 1.8rem;
             padding-left: 0;
             padding-top: 2rem;
         }
+    }
+    
+    &-heading {
+        font-size: 3rem;
     }
 }
 

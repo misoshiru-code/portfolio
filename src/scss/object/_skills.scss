@@ -84,7 +84,7 @@
     .linkBox {
         position: relative;
         .readMore {
-        @include read_more();
+        @include readMore();
         }
         .balloon {
         @include balloon();
