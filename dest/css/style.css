@@ -76,6 +76,7 @@ a:link, a:hover, a:visited, a:active {
   width: 100%;
   height: 100%;
   z-index: 100;
+  display: none;
 }
 
 .bgNav-inner {
@@ -321,7 +322,7 @@ a:link, a:hover, a:visited, a:active {
   width: 30%;
 }
 
-.twitter {
+.about .twitter {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -329,13 +330,13 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.twitter:hover {
+.about .twitter:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #1C95E0;
 }
 
-.facebook {
+.about .facebook {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -343,13 +344,13 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.facebook:hover {
+.about .facebook:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #3C5997;
 }
 
-.github {
+.about .github {
   font-size: 5rem;
   line-height: 10rem;
   -webkit-transition: .5s;
@@ -357,17 +358,17 @@ a:link, a:hover, a:visited, a:active {
   color: #383634;
 }
 
-.github:hover {
+.about .github:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
   color: #2B3236;
 }
 
-.linkBox {
+.about .linkBox {
   position: relative;
 }
 
-.readMore {
+.about .linkBox .readMore {
   margin: 8rem auto 0;
   display: block;
   width: 10rem;
@@ -377,7 +378,7 @@ a:link, a:hover, a:visited, a:active {
   cursor: default;
 }
 
-.readMore::after {
+.about .linkBox .readMore::after {
   margin-left: 0.5rem;
   content: '\f054';
   display: inline-block;
@@ -389,16 +390,16 @@ a:link, a:hover, a:visited, a:active {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-.readMore:hover {
+.about .linkBox .readMore:hover {
   opacity: 0.9;
 }
 
-.readMore:hover:after {
+.about .linkBox .readMore:hover:after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
 
-.balloon {
+.about .linkBox .balloon {
   color: #fafafa;
   font-size: 1.4rem;
   position: absolute;
@@ -414,7 +415,7 @@ a:link, a:hover, a:visited, a:active {
   display: none;
 }
 
-.balloon::after {
+.about .linkBox .balloon::after {
   border-bottom: 2rem solid rgba(56, 54, 52, 0.7);
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
@@ -928,7 +929,7 @@ a:link, a:hover, a:visited, a:active {
   }
 }
 
-#works {
+.works {
   padding: 80px 0;
   color: #fafafa;
   background: #383634;
@@ -936,7 +937,7 @@ a:link, a:hover, a:visited, a:active {
   z-index: 0;
 }
 
-#works .heading {
+.works-heading {
   margin: 3rem 0 1.5rem;
   font-size: 4rem;
   color: #fafafa;
@@ -944,11 +945,11 @@ a:link, a:hover, a:visited, a:active {
   text-transform: uppercase;
 }
 
-#works .work-wrapper {
+.works-wrapper {
   margin: 6rem 2rem 0;
 }
 
-#works .work_box {
+.works-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -959,11 +960,11 @@ a:link, a:hover, a:visited, a:active {
   padding: 0 1rem;
 }
 
-#works .work_img {
+.works-img {
   overflow: hidden;
 }
 
-#works .work_img .work_eff {
+.works-eff {
   position: relative;
   width: 100%;
   height: auto;
@@ -971,7 +972,7 @@ a:link, a:hover, a:visited, a:active {
   transition: all .5s ease 0.1s;
 }
 
-#works .work_img .work_eff:before {
+.works-eff:before {
   content: "Click More";
   position: absolute;
   width: 100%;
@@ -994,33 +995,33 @@ a:link, a:hover, a:visited, a:active {
   text-shadow: 0 0 0.5rem #383634;
 }
 
-#works .work_img .work_eff:hover {
+.works-eff:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-#works .work_img .work_eff:hover::before {
+.works-eff:hover::before {
   opacity: 1;
 }
 
-#works .work_heading {
+.works-descHeading {
   color: #fafafa;
   font-size: 1.8rem;
   line-height: 1.8;
   margin-top: 1rem;
 }
 
-#works .work_desc {
+.works-desc {
   color: #fafafa;
   font-size: 1.4rem;
   line-height: 1.8;
 }
 
-#works .linkbox {
+.works .linkBox {
   position: relative;
 }
 
-#works .linkbox .read_more {
+.works .linkBox .readMore {
   margin: 8rem auto 0;
   display: block;
   width: 10rem;
@@ -1030,7 +1031,7 @@ a:link, a:hover, a:visited, a:active {
   cursor: default;
 }
 
-#works .linkbox .read_more::after {
+.works .linkBox .readMore::after {
   margin-left: 0.5rem;
   content: '\f054';
   display: inline-block;
@@ -1042,16 +1043,16 @@ a:link, a:hover, a:visited, a:active {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-#works .linkbox .read_more:hover {
+.works .linkBox .readMore:hover {
   opacity: 0.9;
 }
 
-#works .linkbox .read_more:hover:after {
+.works .linkBox .readMore:hover:after {
   -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
 }
 
-#works .linkbox .balloon {
+.works .linkBox .balloon {
   color: #383634;
   font-size: 1.4rem;
   position: absolute;
@@ -1067,7 +1068,7 @@ a:link, a:hover, a:visited, a:active {
   display: none;
 }
 
-#works .linkbox .balloon::after {
+.works .linkBox .balloon::after {
   border-bottom: 2rem solid rgba(250, 250, 250, 0.7);
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
@@ -1165,26 +1166,15 @@ a:link, a:hover, a:visited, a:active {
   .scrollGuide {
     right: 2rem;
   }
-  #works .work_heading {
+  .works-descHeading {
     font-size: 1.4rem;
   }
-  #works .work_desc {
+  .works-desc {
     font-size: 1.2rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .bgNav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
   .globalNav {
     padding-right: 0;
   }
@@ -1235,7 +1225,7 @@ a:link, a:hover, a:visited, a:active {
   .topMain-desc {
     font-size: 1.4rem;
   }
-  #works .heading {
+  .works-heading {
     padding-bottom: 1.5rem;
     margin: 2rem 0 1.5rem;
     font-size: 2.5rem;

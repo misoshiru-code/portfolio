@@ -85,7 +85,7 @@ $(function () {
 
     // worksスライダー
 
-    $('.work-wrapper').slick({
+    $('.works-wrapper').slick({
         dots: false,
         arrows: false,
         autoplay: true,
