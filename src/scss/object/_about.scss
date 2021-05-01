@@ -3,21 +3,29 @@
 	right: 3rem;
 	bottom: 3rem;
     cursor: pointer;
-    background: rgba(250,250,250,.8);
+    background: $color-black;
     width: 5rem;
     height: 5rem;
+    border: 1px solid $color-white;
     border-radius: 50%;
+    text-align: center;
+    transition: .5s;
     z-index: 10;
+    &:hover {
+        background: $color-white;
+        border: 1px solid $color-black;
+    }
     @include mq() {
         display: none!important;
     }
     &-size {
-        font-size: 5rem;
-        color: $color_black;
-        line-height: 5rem;
-        transition: .3s;
+        display: block;
+        font-size: 4rem;
+        color: $color_white;
+        line-height: 4.5rem;
+        transition: .5s;
         &:hover {
-            opacity: .8;
+            color: $color_black;
         }
     }
 }

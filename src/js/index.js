@@ -12,12 +12,12 @@ window.addEventListener('resize', setFillHeight);
 setFillHeight();
 
 //jQuery
-$(function(){
+$(function () {
 
     //ローディング処理
     //読み込みが完了したら実行
     $(window).on('load', function () {
-    // ローディングが10秒以内で終わる場合、読み込み完了後ローディング非表示
+        // ローディングが10秒以内で終わる場合、読み込み完了後ローディング非表示
         endLoading();
     });
 
@@ -31,6 +31,34 @@ $(function(){
             $('.loading').fadeOut(1000);
         });
     }
+
+    //ヘッダーより下にスクロールした時ロゴに背景色
+
+    var header = $('.header'); //ヘッダーコンテンツ
+    var anchor = $('.header-logo>a, .headerNav-item>a');
+    var openBtn = $('.top, .middle, .bottom');
+    var topViewHeight = $('.topMain').height();
+
+    //初回処理、ページトップにいる場合、ヘッダーの背景色を消す
+/*
+    if ($(window).scrollTop() == 0) {
+        linkBox.removeClass('bg-active');
+        backLink.fadeOut(100);
+    }
+*/
+    $(window).on('scroll', function () {
+        if (topViewHeight > jQuery(this).scrollTop()) {
+            //スクロール位置が指定クラスより上にいるので、cssで指定した色のまま
+            header.removeClass('g-white');
+            anchor.removeClass('t-black');
+            openBtn.removeClass('b-btn');
+        } else {
+            //指定位置より下までスクロールしたので、色を反転させる
+            header.addClass('g-white');
+            anchor.addClass('t-black');
+            openBtn.addClass('b-btn');
+        }
+    });
 
     // メニューの開閉
     var duration = 1000;
@@ -76,18 +104,6 @@ $(function(){
             $('.pageTop').fadeOut(600); //600ms
         }
     });
-    //ホバーイベント
-    $(".pageTop").hover(
-        function () {
-            $(this).animate({
-                opacity: "0.7"
-            }, 300); //300ms
-        },
-        function () {
-            $(this).animate({
-                opacity: "1"
-            }, 300); //300ms
-        });
 
     //balloonの表示/非表示切り替え
     $('.readMore').hover(
