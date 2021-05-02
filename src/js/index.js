@@ -77,6 +77,10 @@ $(function () {
         };
     });
 
+    $('.globalNav-list a[href]').on('click', function(event) {
+        $('.openBtn').trigger('click');
+    });
+
     //指定要素から150pxスクロールしたら、下から上にフェードイン
 
     $(window).scroll(function () {
