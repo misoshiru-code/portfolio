@@ -40,12 +40,12 @@ $(function () {
     var topViewHeight = $('.topMain').height();
 
     //初回処理、ページトップにいる場合、ヘッダーの背景色を消す
-/*
-    if ($(window).scrollTop() == 0) {
-        linkBox.removeClass('bg-active');
-        backLink.fadeOut(100);
-    }
-*/
+    /*
+        if ($(window).scrollTop() == 0) {
+            linkBox.removeClass('bg-active');
+            backLink.fadeOut(100);
+        }
+    */
     $(window).on('scroll', function () {
         if (topViewHeight > jQuery(this).scrollTop()) {
             //スクロール位置が指定クラスより上にいるので、cssで指定した色のまま
@@ -77,7 +77,7 @@ $(function () {
         };
     });
 
-    $('.globalNav-list a[href]').on('click', function(event) {
+    $('.globalNav-list a[href]').on('click', function (event) {
         $('.openBtn').trigger('click');
     });
 
@@ -94,70 +94,99 @@ $(function () {
         });
     });
 
-    //ページトップへのスクロール
-    $('.pageTop').click(function () {
-        //class名.page-topがクリックされたら、以下の処理を実行
-        $("html,body").animate({ scrollTop: 0 }, "300"); //300ms
-    });
-    //ページトップの出現
-    $('.pageTop').hide();
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 600) { //600px
-            $('.pageTop').fadeIn(600); //600ms
-        } else {
-            $('.pageTop').fadeOut(600); //600ms
+    // //ページトップへのスクロール
+    // $('.pageTop').click(function () {
+    //     //class名.page-topがクリックされたら、以下の処理を実行
+    //     $("html,body").animate({ scrollTop: 0 }, "300"); //300ms
+    // });
+    // //ページトップの出現
+    // $('.pageTop').hide();
+    // $(window).scroll(function () {
+    //     if ($(window).scrollTop() > 600) { //600px
+    //         $('.pageTop').fadeIn(600); //600ms
+    //     } else {
+    //         $('.pageTop').fadeOut(600); //600ms
+    //     }
+    // });
+
+
+    // class宣言トライ中
+    // class pageTop {
+    //     constractor(ptBtn, hHeight) {
+    //         this.ptBtn = document.querySelector(ptBtn);
+    //         this.hHeight = document.querySelector(hHeight).clientHeight;
+    //     }
+    //     window.addEventListener('scroll', () => {
+    //         if (window.pageYOffset > hHeight * 2 / 3) {
+    //             ptBtn.classList.add('showBtn');
+    //         } else {
+    //             ptBtn.classList.remove('showBtn');
+    //         }
+    //     });
+
+    // }
+
+const ptBtn = document.querySelector('.js-ptBtn');
+const hHeight = document.querySelector('.topMain').clientHeight;
+
+window.addEventListener('scroll', () => {
+    if(window.pageYOffset > hHeight * 2/3 ) {
+        ptBtn.classList.add('showBtn');
+    } else {
+        ptBtn.classList.remove('showBtn');
+    }
+});
+
+
+//balloonの表示/非表示切り替え
+$('.readMore').hover(
+    function () {
+        var i = $('.readMore').index(this);
+        $('.balloon').eq(i).fadeIn();
+    },
+    function () {
+        var i = $('.readMore').index(this);
+        $('.balloon').eq(i).fadeOut();
+    }
+);
+
+// worksスライダー
+
+$('.works-wrapper').slick({
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 0,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
+    speed: 5000,//スライドのスピード。初期値は300。
+    infinite: true,//スライドをループさせるかどうか。初期値はtrue。
+    pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
+    pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
+    cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
+    slidesToShow: 3,//スライドを画面に3枚見せる
+    slidesToScroll: 1,//1回のスライドで動かす要素数
+    responsive: [{
+        breakpoint: 1024,//tb画面の時、2枚表示
+        settings: {
+            slidesToShow: 2,
         }
-    });
-
-    //balloonの表示/非表示切り替え
-    $('.readMore').hover(
-        function () {
-            var i = $('.readMore').index(this);
-            $('.balloon').eq(i).fadeIn();
-        },
-        function () {
-            var i = $('.readMore').index(this);
-            $('.balloon').eq(i).fadeOut();
+    }, {
+        breakpoint: 768,//SP画面の時、1枚表示
+        settings: {
+            slidesToShow: 1,
         }
-    );
+    }]
+});
 
-    // worksスライダー
+//アコーディオンをクリックした時の動作
+$('.accordion-title').on('click', function () {//タイトル要素をクリックしたら
+    var findElm = $(this).next(".accordion-box");//直後のアコーディオンを行うエリアを取得し
+    $(findElm).slideToggle();//アコーディオンの上下動作
 
-    $('.works-wrapper').slick({
-        dots: false,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 0,//自動的に動き出す待ち時間。初期値は3000ですが今回の見せ方では0
-        speed: 5000,//スライドのスピード。初期値は300。
-        infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-        pauseOnHover: false,//オンマウスでスライドを一時停止させるかどうか。初期値はtrue。
-        pauseOnFocus: false,//フォーカスした際にスライドを一時停止させるかどうか。初期値はtrue。
-        cssEase: 'linear',//動き方。初期値はeaseですが、スムースな動きで見せたいのでlinear
-        slidesToShow: 3,//スライドを画面に3枚見せる
-        slidesToScroll: 1,//1回のスライドで動かす要素数
-        responsive: [{
-            breakpoint: 1024,//tb画面の時、2枚表示
-            settings: {
-                slidesToShow: 2,
-            }
-        }, {
-            breakpoint: 768,//SP画面の時、1枚表示
-            settings: {
-                slidesToShow: 1,
-            }
-        }]
-    });
-
-    //アコーディオンをクリックした時の動作
-    $('.accordion-title').on('click', function () {//タイトル要素をクリックしたら
-        var findElm = $(this).next(".accordion-box");//直後のアコーディオンを行うエリアを取得し
-        $(findElm).slideToggle();//アコーディオンの上下動作
-
-        if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
-            $(this).removeClass('close');//クラス名を除去し
-        } else {//それ以外は
-            $(this).addClass('close');//クラス名closeを付与
-        }
-    });
+    if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
+        $(this).removeClass('close');//クラス名を除去し
+    } else {//それ以外は
+        $(this).addClass('close');//クラス名closeを付与
+    }
+});
 
 });

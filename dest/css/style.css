@@ -299,6 +299,9 @@ a:link, a:hover, a:visited, a:active {
   -webkit-transition: .5s;
   transition: .5s;
   z-index: 10;
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
 }
 
 .pageTop:hover {
@@ -317,6 +320,12 @@ a:link, a:hover, a:visited, a:active {
 
 .pageTop-size:hover {
   color: #383634;
+}
+
+.showBtn {
+  opacity: 1;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
 }
 
 .about {
